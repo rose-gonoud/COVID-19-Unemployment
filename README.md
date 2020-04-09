@@ -1,5 +1,5 @@
-### Interactive Data Visualization, Project 2
+# Interactive Data Visualization, Project 2
 
-# Overall Project Scope and Objective
+### Overall Project Scope and Objective
 
-# Our Tools
+### Our Tools
