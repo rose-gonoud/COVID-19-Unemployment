@@ -20,8 +20,9 @@ The above link provided us with the raw unemployment data - it was downloaded as
 
 #### Christian
 
-- [ ] Download the data sets from the the unemployment database for every state's data from
-- [ ] Create a Mongo or SQL database with a single entry per line
+- [x] Download the data sets from the the unemployment database for every state's data from
+- [x] Create a Mongo or SQL database with a single entry per line
+- [ ] Convert SQL database to SQLlite using SQLAlchemy
 
 #### Rose
 
@@ -42,6 +43,7 @@ The above link provided us with the raw unemployment data - it was downloaded as
 - [ ] Create start date and end date selectors in the HTML (Two tick slider maybe?)
 - [ ] Create state selector in HTML (consider a multiselect field)
 - [ ] Use onChange listeners in D3 to send out queries to Rose's API based on the values of those filters using the d3.json() function
+- [ ] Work on creating a map visualization that can change the color value of each state according to a numeric value
 
 #### Jesse
 
@@ -52,6 +54,7 @@ The above link provided us with the raw unemployment data - it was downloaded as
 #### Unassigned
 
 - [ ] Page CSS
+- [ ] "Data" page with filters that shows table of visualized data
 - [ ] "Sources" page that reveals all sources of information
 - [ ] "About" page that credits the creators
 - [ ] Logo
