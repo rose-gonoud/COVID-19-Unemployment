@@ -15,3 +15,36 @@ We are playing with the idea of incorporating historical data that would be topi
 https://oui.doleta.gov/unemploy/claims.asp
 
 The above link provided us with the raw unemployment data - it was downloaded as a CSV, and will be uploaded row by row into a MongoDB collection. Our flask app will read information from the database based on user input from our webpage/visual dashboard, and initialize real-time updates our dashboard with the result of the mongo query.
+
+### Division of Work
+
+- Christian
+- - Download the data sets from the the unemployment database for every state's data from
+- - Create a Mongo or SQL database with a single entry per line
+
+- Rose
+- - Get data set from Christian
+- - Create a Python flask app that reads from the database.
+- - Set up API routes with optional query parameters that execute the corresponding SQL or Mongo query, and return only that subset of results.
+
+- Luisa
+- - Create a dashboard layout that visualizes the unemployment data in whatever ways seem good.
+- - - Line Chart
+- - - Doubling Rate?
+- - - Display statistics? (max applications in range, min applications in range)
+
+- Nathan
+- - Create start date and end date selectors in the HTML (Two tick slider maybe?)
+- - Create state selector in HTML (consider a multiselect field)
+- - Use onChange listeners in D3 to send out queries to Rose's API based on the values of those filters using the d3.json() function
+
+- Jesse
+- - Project Ops. Help with any questions from any team member.
+- - Handle Git Merges, etc
+- - Collect other data that we may wish to correlate (Covid, Stock market)
+
+- Unassigned
+- - Page CSS
+- - "Sources" page that reveals all sources of information
+- - "About" page that credits the creators
+- - Logo
