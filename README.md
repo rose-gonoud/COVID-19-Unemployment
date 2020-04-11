@@ -28,10 +28,10 @@ The above link provided us with the raw unemployment data - it was downloaded as
 - - Set up API routes with optional query parameters that execute the corresponding SQL or Mongo query, and return only that subset of results.
 
 - Luisa
-- - Create a dashboard layout that visualizes the unemployment data in whatever ways seem good.
-- - - Line Chart
-- - - Doubling Rate?
-- - - Display statistics? (max applications in range, min applications in range)
+  -- Create a dashboard layout that visualizes the unemployment data in whatever ways seem good.
+  --- Line Chart
+  --- Doubling Rate?
+  --- Display statistics? (max applications in range, min applications in range)
 
 - Nathan
 - - Create start date and end date selectors in the HTML (Two tick slider maybe?)
