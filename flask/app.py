@@ -11,7 +11,7 @@ from sqlalchemy import create_engine, func
 from flask import Flask, jsonify
 
 # Database Setup
-engine = create_engine("sqlite:///../Project2.db")
+engine = create_engine("sqlite:///../assets/data/Project2.db")
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -20,7 +20,6 @@ Base = automap_base()
 Base.prepare(engine, reflect=True)
 
 # Save reference to the table
-print(dir(Base.classes))
 unemployment = Base.classes.unemploymentData
 
 # Flask Setup
