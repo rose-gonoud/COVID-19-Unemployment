@@ -92,7 +92,7 @@ var baseMaps = {
       var labels = [];
   
       // Add min & max
-      var legendInfo = "<h1>Unemployment</h1>" +
+      var legendInfo = "<h1>Unemployment Claims</h1>" +
         "<div class=\"labels\">" +
           "<div class=\"min\">" + limits[0] + "</div>" +
           "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
