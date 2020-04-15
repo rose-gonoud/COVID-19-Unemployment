@@ -37,21 +37,8 @@ var baseMaps = {
   var geojson;
   var info = "assets/data/Export.csv";
 
-  var csvData = [];
-  d3.csv(info, function(csv) {
-    csv.forEach(function(d){
-      csvData.push({
-        state: d.state,
-        claims: d.InitialClaims,
-        date: d.Fileweekended
-      });
-    });
-
-  });
-  console.log(csvData);
  
-
-  // Grab data with d3
+ // Grab data with d3
   d3.json(geoData, function(data) {
     
     // Create a new choropleth layer
@@ -59,7 +46,7 @@ var baseMaps = {
       
   
       // Define what  property in the features to use
-      valueProperty: "Claims",
+      valueProperty: "STATE",
 
       // Set color scale
       scale: ["yellow", "green"],
