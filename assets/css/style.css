@@ -242,6 +242,11 @@ html {
   height: 100%;
 }
 
+#map {
+  height: 600px;
+  width: 800px;
+}
+
 .leaflet-popup-content {
   text-align: center;
 }
@@ -279,4 +284,3 @@ html {
 .legend .max {
   float: right;
 }
-
