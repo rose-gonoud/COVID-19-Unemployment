@@ -2,13 +2,13 @@ import numpy as np
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
-# from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Float
 
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 # Database Setup
 engine = create_engine("sqlite:///../assets/data/Project2.db")
@@ -24,26 +24,10 @@ unemployment = Base.classes.unemploymentData
 
 # Flask Setup
 app = Flask(__name__)
+cors = CORS(app)
 
 @app.route("/")
 def welcome():
-
-    # # Create our session (link) from Python to the DB
-    # session = Session(engine)
-    # allStates = []
-    # """Here is our data so far."""
-    # # Query all states
-    # results = session.query(unemployment.state).all()
-    # for result in results:
-    #     if allStates.count(result[0]) == 0:
-    #         allStates.append(result[0])
-
-    # session.close()
-
-    # returnString = ""
-    # for state in allStates:
-    #     returnString += f"{state} <br>"
-    # return returnString
 
     session = Session(engine)
     """Here is the most recent data for each state."""
@@ -65,6 +49,18 @@ def welcome():
         })
         
     return jsonify(data)
+
+@app.route("/unemploymentData")
+def unemploymentData():
+    start_date = request.args.get('start_date')
+    end_date = request.args.get('end_date')
+    state = request.args.get("state")
+
+    print("---------------------------")
+    print(start_date, end_date, state)
+    print("---------------------------")
+
+    return f"{start_date}{end_date}{state}"
 
 if __name__ == '__main__':
     app.run(debug=True)
