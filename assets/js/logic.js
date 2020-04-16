@@ -35,18 +35,17 @@ var baseMaps = {
   // Load in geojson data
   var geoData = "assets/data/US.geojson";
   var geojson;
-  var info = "assets/data/Export.csv";
-
+  console.log(testData[0].state);
  
  // Grab data with d3
   d3.json(geoData, function(data) {
-    
+
     // Create a new choropleth layer
     var geojson = L.choropleth(data, {
       
   
       // Define what  property in the features to use
-      valueProperty: "STATE",
+      valueProperty: testData.initial_claims,
 
       // Set color scale
       scale: ["yellow", "green"],
@@ -65,7 +64,7 @@ var baseMaps = {
   
       // Binding a pop-up to each layer
       onEachFeature: function(feature, layer) {
-        layer.bindPopup(feature.properties.NAME + " </br>Requested Unemployment: " + feature.properties.Claims);
+        layer.bindPopup(feature.properties.NAME + " </br>Requested Unemployment: " + testData.initial_claims);
       }
   
     }).addTo(myMap);
@@ -108,4 +107,3 @@ var baseMaps = {
   
   });
 
-  
