@@ -22,27 +22,28 @@ The above link provided us with the raw unemployment data - it was downloaded as
 
 - [x] Download the data sets from the the unemployment database for every state's data from
 - [x] Create a Mongo or SQL database with a single entry per line
-- [ ] Convert SQL database to SQLlite using SQLAlchemy
+- [ ] Create a Logo for the page
 
 #### Rose
 
-- [ ] Get data set from Christian
-- [ ] Create a Python flask app that reads from the database.
+- [x] Get data set from Christian
+- [x] Convert SQL database to SQLlite using SQLAlchemy
+- [x] Create a Python flask app that reads from the database.
 - [ ] Set up API routes with optional query parameters that execute the corresponding SQL or Mongo query, and return only that subset of results.
 
 #### Luisa
 
 - [ ] Create a dashboard layout that visualizes the unemployment data in whatever ways seem good.
-
+  - [x] Create a mock-up of the main dashboard.
+  - [ ] Create Index.js with places for each chart that we want
+  - [ ] Create start date and end date selectors in the HTML (Two tick slider maybe?)
+  - [ ] Create state selector in HTML (consider a multiselect field)
+  - [ ] Display statistics section (max applications in range, min applications in range)
   - [ ] Line Chart
   - [ ] Doubling Rate?
-  - [ ] Display statistics? (max applications in range, min applications in range)
 
 #### Nathan
 
-- [ ] Create start date and end date selectors in the HTML (Two tick slider maybe?)
-- [ ] Create state selector in HTML (consider a multiselect field)
-- [ ] Use onChange listeners in D3 to send out queries to Rose's API based on the values of those filters using the d3.json() function
 - [ ] Work on creating a map visualization that can change the color value of each state according to a numeric value
 
 #### Jesse
@@ -53,8 +54,8 @@ The above link provided us with the raw unemployment data - it was downloaded as
 
 #### Unassigned
 
+- [ ] Use onChange listeners in D3 to send out queries to Rose's API based on the values of those filters using the d3.json() function
 - [ ] Page CSS
 - [ ] "Data" page with filters that shows table of visualized data
 - [ ] "Sources" page that reveals all sources of information
 - [ ] "About" page that credits the creators
-- [ ] Logo
