@@ -4,14 +4,12 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-from sqlalchemy.dialects.postgresql import Any
-# from sqlalchemy import or_
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 # Database Setup
-engine = create_engine("sqlite:///../assets/data/Project2.db")
+engine = create_engine("sqlite:///../assets/data/Project2.db", echo='debug')
 
 Base = automap_base()
 
@@ -55,11 +53,28 @@ def welcome():
 def unemploymentData():
     start_date = request.args.get('start_date')
     end_date = request.args.get('end_date')
-    state = request.args.get("state")
-    state = ["New York", "Alabama"]
-    print("LOOK HERE", type(state))
+    stateparam = request.args.get("state")
+    stateparam = ['Alabama','Alaska']
+
+    print("---------------------------")
+    print("Whats in State:", stateparam)
+    print("---------------------------")
+    # stateparam = stateparam.split(',')
+    # print("Whats in State after split:", stateparam)
+    # print("---------------------------")
+    # stateparam = [state.capitalize() for state in stateparam]
+    # print("LOOK HERE", type(stateparam))
+    # print("---------------------------")
 
     session = Session(engine)
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # my previous commit contains a working API under all conditions specified in "/" home route, for only one state selected
+    # this is an attempt to process a multi-select on state
+    # base /unemploymentData route returns empty now, all empty unless just one state is specified
+    # right now, even when there's no state info in URL query for dates breaks and returns empty json
+    # one state works when specified, multiple states as "state=New%20York,%20Alabama" or "state=New%20York,Alabama", etc do not work
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     if not start_date:
         # query the min of all file_week_ended entries if no date is given in that parameter
@@ -71,21 +86,19 @@ def unemploymentData():
         max_end_date = session.query(func.max(unemployment.file_week_ended))
         end_date = max_end_date
 
-    if not state:
+    if not stateparam:
         results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date)
     
-    # how would I make an array of states valid?
-    # SQLalchemy filter for "this field is contained within provided array"
-    # what's the data type of the series of state names - what should that be?
-    if type(state) == "<class 'list'>":
-        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(Any(state, unemployment.state)).all()
+    if isinstance(stateparam, list):
+        stateparam = stateparam.split(',')
+        stateparam = [state.capitalize() for state in stateparam]
+        print("Are you making it to this line?")
+        # this should make an array of states valid
+        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state.in_(stateparam)).all()
 
     else:
-        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state == state)
-
-
-    # session.query(unemployment).filter(Any(state_array, unemployment.state)).all()
-    # DBSession().query(MyTable).filter(or_(*[MyTable.my_column.like(name) for name in state]))
+        print("The logic test doesnt think its a list")
+        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state == stateparam)
 
     session.close()
 
@@ -100,10 +113,6 @@ def unemploymentData():
             "covered_employment": result.covered_employment,
             "insured_unemployment_rate": result.insured_unemployment_rate
         })
-
-    print("---------------------------")
-    print(type(start_date), type(end_date), type(state))
-    print("---------------------------")
 
     return jsonify(data)
 
