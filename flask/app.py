@@ -54,17 +54,19 @@ def unemploymentData():
     start_date = request.args.get('start_date')
     end_date = request.args.get('end_date')
     stateparam = request.args.get("state")
-    stateparam = ['Alabama','Alaska']
+    # stateparam = ['Alabama','Alaska']
 
     print("---------------------------")
     print("Whats in State:", stateparam)
+    print("Whats it's type:", type(stateparam))
     print("---------------------------")
-    # stateparam = stateparam.split(',')
-    # print("Whats in State after split:", stateparam)
-    # print("---------------------------")
-    # stateparam = [state.capitalize() for state in stateparam]
-    # print("LOOK HERE", type(stateparam))
-    # print("---------------------------")
+    stateparam = stateparam.split(',')
+    print("Whats in State after split:", stateparam)
+    print("What type is it now?", type(stateparam))
+    print("---------------------------")
+    # stateparam = [state.title() for state in stateparam]
+    print("What's in State after capitalization", stateparam)
+    print("---------------------------")
 
     session = Session(engine)
 
@@ -89,11 +91,12 @@ def unemploymentData():
     if not stateparam:
         results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date)
     
+
     if isinstance(stateparam, list):
-        stateparam = stateparam.split(',')
         stateparam = [state.capitalize() for state in stateparam]
         print("Are you making it to this line?")
         # this should make an array of states valid
+        # The following code works in most cases, but fails on any state that has a space in the name. 
         results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state.in_(stateparam)).all()
 
     else:
