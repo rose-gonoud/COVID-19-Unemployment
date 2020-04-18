@@ -3,7 +3,7 @@ import numpy as np
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine, func, text
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -32,13 +32,13 @@ def welcome():
                 <br><br>
                 Add optional start and end date parameters by inputing dates in the form of:
                 <br>
-                start_date or end_date='yyyy-mm-dd'
+                start_date or end_date=yyyy-mm-dd
                 <br><br>
                 Add an optional state filter, such as:
                 <br>
-                state='NY,AL,NJ'
+                state=NY,AL,NJ
                 <br>
-                Input only two-letter capitalized state and territory abbreviations.
+                Input only two-letter capitalized state and territory abbreviations, with no spaces between list items.
                 <br><br>
                 You may choose to input only a start date, only an end date, or only a state filter.
                 <br>
@@ -55,15 +55,6 @@ def unemploymentData():
     end_date = request.args.get('end_date')
     stateparam = request.args.get("state_abbr")
 
-    print("---------------------------")
-    print("Whats in State:", stateparam)
-    print("Whats it's type:", type(stateparam))
-    print("---------------------------")
-    stateparam = stateparam.split(',')
-    print("Whats in State after split:", stateparam)
-    print("What type is it now?", type(stateparam))
-    print("---------------------------")
-
     session = Session(engine)
 
     if not start_date:
@@ -76,20 +67,27 @@ def unemploymentData():
         max_end_date = session.query(func.max(unemployment.file_week_ended))
         end_date = max_end_date
 
+    # these operators (<, >, etc) not supported between queries - how might I print custom message for incorrect ranges?
+    # if (start_date <= end_date):
+    #     return "That is not a possible date range: please make sure your start_date is earlier than your end_date"
+
     if not stateparam:
         results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date)
     
-    if isinstance(stateparam, list):
-        stateparam = [state.title() for state in stateparam]
-        print("Are you making it to this line?")
-        # this should make an array of states valid
-        # The following code isn't working for any conditions right now...
-        # test query URL: http://127.0.0.1:5000/unemploymentData?start_date=2019-01-01&end_date=2019-02-01&state_abbr=NY,NJ
-        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state_abbr.in_(stateparam)).all()
+    if stateparam:
+        print("---------------------------")
+        print("Whats in State:", stateparam)
+        print("Whats it's type:", type(stateparam))
+        print("---------------------------")
+        stateparam = stateparam.split(',')
+        print("Whats in State after split:", stateparam)
+        print("What type is it now?", type(stateparam))
+        print("---------------------------")
 
-    else:
-        print("The logic test doesnt think its a list")
-        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state_abbr == stateparam)
+        if isinstance(stateparam, list):
+            print("Are you making it to this line?")
+            # this should make an array of states valid and handle the single-state case
+            results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state_abbr.in_(stateparam)).all()
 
     session.close()
 
