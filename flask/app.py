@@ -28,17 +28,17 @@ def welcome():
     start_menu = """<br>
                 Explore our US unemployment data API! 
                 <br><br>
-                Add "/unemploymentData" to your current URL for all US unemployment data from Jan 2019 through the present day
+                Follow route "/unemploymentData" for all US unemployment data from Jan 2019 through the present day
                 <br><br>
-                Add optional start and end date filters with:
+                Add optional start and end date parameters by inputing dates in the form of:
                 <br>
-                "/unemploymentData?start_date=__yyyy-mm-dd___&end_date=__yyyy-mm-dd___"
+                start_date or end_date='yyyy-mm-dd'
                 <br><br>
-                Add an optional state filter with:
+                Add an optional state filter, such as:
                 <br>
-                "/unemploymentData?state=New York"
+                state='NY,AL,NJ'
                 <br>
-                Input only full state names, spaces are acceptable.
+                Input only two-letter capitalized state and territory abbreviations.
                 <br><br>
                 You may choose to input only a start date, only an end date, or only a state filter.
                 <br>
@@ -53,8 +53,7 @@ def welcome():
 def unemploymentData():
     start_date = request.args.get('start_date')
     end_date = request.args.get('end_date')
-    stateparam = request.args.get("state")
-    # stateparam = ['Alabama','Alaska']
+    stateparam = request.args.get("state_abbr")
 
     print("---------------------------")
     print("Whats in State:", stateparam)
@@ -64,19 +63,8 @@ def unemploymentData():
     print("Whats in State after split:", stateparam)
     print("What type is it now?", type(stateparam))
     print("---------------------------")
-    # stateparam = [state.title() for state in stateparam]
-    print("What's in State after capitalization", stateparam)
-    print("---------------------------")
 
     session = Session(engine)
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # my previous commit contains a working API under all conditions specified in "/" home route, for only one state selected
-    # this is an attempt to process a multi-select on state
-    # base /unemploymentData route returns empty now, all empty unless just one state is specified
-    # right now, even when there's no state info in URL query for dates breaks and returns empty json
-    # one state works when specified, multiple states as "state=New%20York,%20Alabama" or "state=New%20York,Alabama", etc do not work
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     if not start_date:
         # query the min of all file_week_ended entries if no date is given in that parameter
@@ -91,17 +79,17 @@ def unemploymentData():
     if not stateparam:
         results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date)
     
-
     if isinstance(stateparam, list):
-        stateparam = [state.capitalize() for state in stateparam]
+        stateparam = [state.title() for state in stateparam]
         print("Are you making it to this line?")
         # this should make an array of states valid
-        # The following code works in most cases, but fails on any state that has a space in the name. 
-        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state.in_(stateparam)).all()
+        # The following code isn't working for any conditions right now...
+        # test query URL: http://127.0.0.1:5000/unemploymentData?start_date=2019-01-01&end_date=2019-02-01&state_abbr=NY,NJ
+        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state_abbr.in_(stateparam)).all()
 
     else:
         print("The logic test doesnt think its a list")
-        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state == stateparam)
+        results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date).filter(unemployment.state_abbr == stateparam)
 
     session.close()
 
@@ -109,6 +97,7 @@ def unemploymentData():
     for result in results:
         data.append({
             "state": result.state,
+            "state_abbr": result.state_abbr,
             "file_week_ended": result.file_week_ended,
             "initial_claims": result.initial_claims,
             "reflecting_week_ended": result.reflecting_week_ended,
