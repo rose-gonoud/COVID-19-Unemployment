@@ -47,7 +47,6 @@ var baseMaps = {
 // Load in geojson data
 var geoDataPath = "assets/data/US.geojson";
 var geojson;
-console.log(testData[0].state);
 
 /**
  * Takes in geoJson object and appends data returned from the API to each states geoJSON entry
@@ -104,9 +103,10 @@ d3.json(geoDataPath, function (data) {
     // Binding a pop-up to each layer
     onEachFeature: function (feature, layer) {
       layer.bindPopup(
-        feature.properties.NAME +
-          " </br>Requested Unemployment: " +
-          testData.initial_claims
+        // console.log(feature.properties.state)
+        feature.properties.state +
+          " </br>New Unemployment Claims: " +
+          feature.properties.initial_claims
       );
     },
   }).addTo(myMap);
