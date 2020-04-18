@@ -1,7 +1,7 @@
 // Creating map object
 var myMap = L.map("map", {
   center: [39.8283, -98.5795],
-  zoom: 4
+  zoom: 3
 });
 
 
@@ -72,81 +72,79 @@ function zipAPIDataToGeoJSON(geoData, apiReturn) {
   });
 
   return geoData;
+
 }
 
-// Grab data with d3
 d3.json(geoDataPath, function (data) {
   console.log("testData", testData);
   data = zipAPIDataToGeoJSON(data, testData);
 
   console.log("data after zipping together files", data);
 
-  // Create a new choropleth layer
-  var geojson = L.choropleth(data, {
-    // Define what  property in the features to use
-    valueProperty: "initial_claims",
 
-    // Set color scale
-    scale: ["yellow", "green"],
 
-    // Number of breaks in step range
-    steps: 10,
-
-    // q for quartile, e for equidistant, k for k-means
-    mode: "q",
-    style: {
-      // Border color
-      color: "black",
-      weight: 1,
-      fillOpacity: 0.8,
-    },
-
-    // Binding a pop-up to each layer
-    onEachFeature: function (feature, layer) {
-      layer.bindPopup(
-        // console.log(feature.properties.state)
-        feature.properties.state +
-          " </br>New Unemployment Claims: " +
-          feature.properties.initial_claims
-      );
-    },
-  }).addTo(myMap);
-
-  // Set up the legend
-  var legend = L.control({ position: "bottomright" });
-  legend.onAdd = function () {
-    var div = L.DomUtil.create("div", "info legend");
-    var limits = geojson.options.limits;
-    var colors = geojson.options.colors;
-    var labels = [];
-
-    // Add min & max
-    var legendInfo =
-      "<h1>Unemployment Claims</h1>" +
-      '<div class="labels">' +
-      '<div class="min">' +
-      limits[0] +
-      "</div>" +
-      '<div class="max">' +
-      limits[limits.length - 1] +
-      "</div>" +
-      "</div>";
-
-    div.innerHTML = legendInfo;
-
-    limits.forEach(function (limit, index) {
-      labels.push('<li style="background-color: ' + colors[index] + '"></li>');
-    });
-
-    div.innerHTML += "<ul>" + labels.join("") + "</ul>";
-    return div;
+L.geoJson(data).addTo(myMap);
+function getColor(d) {
+  return d > 100000 ? '#008000' :
+         d > 50000 ? '#449500' :
+         d > 20000 ? '#6caa00' :
+         d > 10000  ? '#91bf00' :
+         d > 5000   ? '#b5d400' :
+         d > 2000   ? '#dae900' :
+         d > 1000   ? "#ffff00" :
+                    'black';
+}
+function style(feature) {
+  return {
+      fillColor: getColor(feature.properties.initial_claims),
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      fillOpacity: 0.7
   };
+}
+
+
+function onEachFeature(feature, layer) {
+  layer.bindPopup(
+    // console.log(feature.properties.state)
+    feature.properties.state +
+      " </br>New Unemployment Claims: " +
+      feature.properties.initial_claims
+  );
+}
+
+geojson = L.geoJson(data, {
+  style: style,
+  onEachFeature: onEachFeature
+}).addTo(myMap);
+
+
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 1000, 2000, 5000, 10000, 20000, 50000, 100000],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+legend.addTo(myMap);
+});
 
   var overlayMaps = {
     Choropleth: geojson,
   };
 
-  L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+  L.control.layers(baseMaps).addTo(myMap);
   // Adding legend to the map
-  legend.addTo(myMap);
-});
+
