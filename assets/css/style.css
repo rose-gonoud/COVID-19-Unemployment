@@ -10,12 +10,59 @@ body {
   margin: 0;
 }
 
+
+.leaflet-popup-content {
+  text-align: center;
+}
+
+CSS from the Leaflet-Choropleth documentation
+.legend {
+  padding: 6px 8px;
+  font: 12px Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #555;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.legend ul {
+  padding: 0;
+  margin: 0;
+  clear: both;
+  list-style-type: none;
+}
+
+.legend li {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+}
+
+.legend .min {
+  float: left;
+  padding-bottom: 5px;
+}
+
+.legend .max {
+  float: right;
+}
+
+
+
 /* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
 .wrapper {
   position: relative;
   min-height: 100%;
   padding-bottom: 130px;
   overflow: auto;
+}
+
+
+.new-container {
+ margin-right : 50px;
+ margin-left : 50px;
 }
 
 /* The footer is positioned at the bottom of the page */
@@ -65,14 +112,19 @@ body {
   margin-top: 10px;
 }
 
-select {
+/* select {
   margin: auto;
   display: block;
   width: 80%;
   padding: 8px;
   color: #8e979f;
   outline: none;
-}
+} */
+
+/* .new-container {
+margin-left: 50px;
+margin-right: 50pm;
+} */
 
 .btn-default {
   color: #ffffff;
@@ -295,14 +347,4 @@ html {
   float: left;
   margin-right: 8px;
   opacity: 0.7;
-}
-
-.axis {
-  font: 14px sans-serif;
-}
-
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 2px;
 }
