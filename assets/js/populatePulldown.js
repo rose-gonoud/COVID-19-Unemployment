@@ -39,6 +39,7 @@ function optionChanged() {
       var selValues = [];
       selValues.push($('#selState').val()); 
       console.log(selValues);
+      d3.select("#h-pulldown").text("");
       d3.select("#h-pulldown").text(selValues);
       
               
