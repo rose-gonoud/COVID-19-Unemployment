@@ -1,7 +1,6 @@
-d3.json("http://127.0.0.1:5000/unemploymentData?start_date='banana'&end_date='orange'&state='New%20York'", returnData => {
-  console.log("return", returnData)
-});
-
+d3.json("http://127.0.0.1:5000/unemploymentData?start_date=2020-01-01&state_abbr=OR", data => {
+  console.log(data);
+})
 
 // Creating map object
 var myMap = L.map("map", {
