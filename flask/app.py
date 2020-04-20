@@ -1,5 +1,3 @@
-import numpy as np
-
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -9,7 +7,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 # Database Setup
-engine = create_engine("sqlite:///../assets/data/Project2.db", echo='debug')
+engine = create_engine("sqlite:///../assets/data/Project2.db")
 
 Base = automap_base()
 
@@ -28,7 +26,7 @@ def welcome():
     start_menu = """<br>
                 Explore our US unemployment data API! 
                 <br><br>
-                Follow route "/unemploymentData" for all US unemployment data from Jan 2019 through the present day
+                Follow route "/unemploymentData" for all US unemployment data from Jan 2019 through April 2020
                 <br><br>
                 Add optional start and end date parameters by inputing dates in the form of:
                 <br>
