@@ -71,11 +71,6 @@ html {
   opacity: 0.7;
 }
 
-.leaflet-popup-content {
-  text-align: center;
-}
-
-
 /* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
 .wrapper {
   position: relative;
@@ -84,10 +79,9 @@ html {
   overflow: auto;
 }
 
-
 .new-container {
- margin-right : 100px;
- margin-left : 100px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 /* The footer is positioned at the bottom of the page */
@@ -145,8 +139,6 @@ select {
   color: #8e979f;
   outline: none;
 }
-
-
 
 .btn-default {
   color: #ffffff;
@@ -308,4 +300,20 @@ select {
   to {
     opacity: 1;
   }
+}
+#plot {
+  height: 600px;
+  width: 800px;
+}
+
+.legend {
+  line-height: 18px;
+  color: #555;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
 }

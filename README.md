@@ -29,7 +29,7 @@ The above link provided us with the raw unemployment data - it was downloaded as
 - [x] Get data set from Christian
 - [x] Convert SQL database to SQLlite using SQLAlchemy
 - [x] Create a Python flask app that reads from the database.
-- [ ] Set up API routes with optional query parameters that execute the corresponding SQL or Mongo query, and return only that subset of results.
+- [x] Set up API routes with optional query parameters that execute the corresponding SQL query, and return only that subset of results.
 
 #### Luisa
 
@@ -48,6 +48,7 @@ The above link provided us with the raw unemployment data - it was downloaded as
 
 #### Jesse
 
+- [ ] Check up on our .gitignore, and the security vulnerabilities identified by GitHub
 - [ ] Project Ops. Help with any questions from any team member.
 - [ ] Handle Git Merges, etc
 - [ ] Collect other data that we may wish to correlate (Covid, Stock market)

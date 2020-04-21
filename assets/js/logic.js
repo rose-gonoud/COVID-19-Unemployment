@@ -1,3 +1,7 @@
+d3.json("http://127.0.0.1:5000/unemploymentData?start_date=2020-01-01&state_abbr=OR", data => {
+  console.log(data);
+})
+
 // Creating map object
 var myMap = L.map("map", {
   center: [39.8283, -98.5795],
@@ -86,12 +90,14 @@ d3.json(geoDataPath, function (data) {
 L.geoJson(data).addTo(myMap);
 function getColor(d) {
   return d > 100000 ? '#008000' :
-         d > 50000 ? '#449500' :
-         d > 20000 ? '#6caa00' :
-         d > 10000  ? '#91bf00' :
-         d > 5000   ? '#b5d400' :
-         d > 2000   ? '#dae900' :
-         d > 1000   ? "#ffff00" :
+         d > 50000 ? '#3d9200' :
+         d > 20000 ? '#61a400' :
+         d > 10000  ? '#81b600' :
+         d > 5000   ? '#a1c800' :
+         d > 2000   ? '#c0da00' :
+         d > 1000   ? "#dfed00" :
+         d > 1      ? "ffff00":
+         d = 0      ?"black":
                     'black';
 }
 function style(feature) {
@@ -125,7 +131,7 @@ var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 1000, 2000, 5000, 10000, 20000, 50000, 100000],
+        grades = [ 0, 1, 1000, 2000, 5000, 10000, 20000, 50000, 100000],
         labels = [];
 
     // loop through our density intervals and generate a label with a colored square for each interval
