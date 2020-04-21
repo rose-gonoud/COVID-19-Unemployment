@@ -16,13 +16,17 @@ https://oui.doleta.gov/unemploy/claims.asp
 
 The above link provided us with the raw unemployment data - it was downloaded as a CSV, and will be uploaded row by row into a MongoDB collection. Our flask app will read information from the database based on user input from our webpage/visual dashboard, and initialize real-time updates our dashboard with the result of the mongo query.
 
+### Heroku Deployment
+
+We are officially deployed at https://unemployment-during-covid19.herokuapp.com/
+
 ### Division of Work
 
 #### Christian
 
 - [x] Download the data sets from the the unemployment database for every state's data from
 - [x] Create a Mongo or SQL database with a single entry per line
-- [ ] Create a Logo for the page
+- [x] Create a Logo for the page
 
 #### Rose
 
@@ -39,16 +43,17 @@ The above link provided us with the raw unemployment data - it was downloaded as
   - [ ] Create start date and end date selectors in the HTML (Two tick slider maybe?)
   - [x] Create state selector in HTML (consider a multiselect field)
   - [x] Display statistics section (max applications in range, min applications in range)
-  - [ ] Line Chart
   - [ ] Doubling Rate?
+  - [ ] "Data" page with filters that shows table of visualized data
 
 #### Nathan
 
-- [ ] Work on creating a map visualization that can change the color value of each state according to a numeric value
+- [x] Work on creating a map visualization that can change the color value of each state according to a numeric value
+- [ ] Line Chart (does this now handle the multi-select properly?)
 
 #### Jesse
 
-- [ ] Check up on our .gitignore, and the security vulnerabilities identified by GitHub
+- [x] Check up on our .gitignore, and the security vulnerabilities identified by GitHub
 - [ ] Project Ops. Help with any questions from any team member.
 - [ ] Handle Git Merges, etc
 - [ ] Collect other data that we may wish to correlate (Covid, Stock market)
@@ -57,6 +62,5 @@ The above link provided us with the raw unemployment data - it was downloaded as
 
 - [ ] Use onChange listeners in D3 to send out queries to Rose's API based on the values of those filters using the d3.json() function
 - [ ] Page CSS
-- [ ] "Data" page with filters that shows table of visualized data
 - [ ] "Sources" page that reveals all sources of information
 - [ ] "About" page that credits the creators
