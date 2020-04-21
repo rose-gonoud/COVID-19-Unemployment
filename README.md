@@ -1,4 +1,4 @@
-# Interactive Data Visualization, Project 2
+# Unemployment Data in the Age of COVID-19, Project 2
 
 ### Overall Project Scope and Objective
 
@@ -18,7 +18,7 @@ The above link provided us with the raw unemployment data - it was downloaded as
 
 ### Heroku Deployment
 
-We are officially deployed at https://unemployment-during-covid19.herokuapp.com/
+We are officially live at https://unemployment-during-covid19.herokuapp.com/
 
 ### Division of Work
 
