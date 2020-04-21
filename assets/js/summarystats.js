@@ -1,12 +1,8 @@
 var apiReturn = [];
 
-d3.json(`https://unemployment-during-covid19.herokuapp.com/unemploymentData`, (data) => {
-  apiReturn = data;
-});
 
-console.log(data)
+console.log(apiReturn);
 
-// d3.map()
 
 // d3.select("#summarystats")
 //     .selectAll("div").remove();

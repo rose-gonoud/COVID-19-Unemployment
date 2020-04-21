@@ -2,7 +2,7 @@
 d3.select("#startDate").property("value", "2019-01-01");
 d3.select("#endDate").property("value", moment().format("YYYY[-]MM[-]DD"));
 
-d3.json(`http://127.0.0.1:5000/unemploymentData`, (data) => {
+d3.json(`https://unemployment-during-covid19.herokuapp.com/unemploymentData`, (data) => {
   apiReturn = data;
 });
 
@@ -44,7 +44,7 @@ function optionChanged() {
 
   // Call out the the API with values from the filter fields
   d3.json(
-    `http://127.0.0.1:5000/unemploymentData?state_abbr=${selValues.toString()}&start_date=${startDate}&end_date=${endDate}`,
+    `https://unemployment-during-covid19.herokuapp.com/unemploymentData?state_abbr=${selValues.toString()}&start_date=${startDate}&end_date=${endDate}`,
     (data) => {
       apiReturn = data;
       console.log("api returned", apiReturn);

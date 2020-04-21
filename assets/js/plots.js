@@ -16,7 +16,6 @@ function handleSubmit() {
 }
 
 function buildPlot(apiReturn) {
-  var url = `http://127.0.0.1:5000/unemploymentapiReturn?start_date=2020-01-01&state_abbr=${state_abbr}`;
   console.log("apiReturn in buidPlot");
 let alabama = [];
 for (let i = 0; i < apiReturn.length; i++) {
