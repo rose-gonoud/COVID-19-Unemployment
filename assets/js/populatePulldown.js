@@ -41,9 +41,8 @@ function optionChanged() {
   selValues.push($("#selState").val());
   d3.select("#h-pulldown").text(selValues);
 
-  console.log(`You changed the value. It is now: ${selValues}`);
-
-  console.log(selValues.toString());
+  startDate = d3.select("#startDate").property("value");
+  endDate = d3.select("#endDate").property("value");
 
   d3.json(
     `http://127.0.0.1:5000/unemploymentData?state_abbr=${selValues.toString()}`,
@@ -51,6 +50,7 @@ function optionChanged() {
       apiReturn = data;
       console.log("api returned", apiReturn);
       buildPlot(data);
+      buildChloropleth(data);
     }
   );
 }
