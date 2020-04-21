@@ -50,6 +50,7 @@ function optionChanged() {
     (data) => {
       apiReturn = data;
       console.log("api returned", apiReturn);
+      buildPlot(data);
     }
   );
 }
