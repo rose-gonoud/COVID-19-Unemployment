@@ -51,6 +51,7 @@ function optionChanged() {
       apiReturn = data;
       console.log("api returned", apiReturn);
       buildPlot(data);
+      buildChloropleth(data);
     }
   );
 }
