@@ -31,7 +31,7 @@ function pullDownMenu() {
  * @param {Number} selectedValue This is the selected id in the pulldow from #selDataset.
  */
 
-function optionChanged() {
+function optionChanged(event) {
     /**
      * collect selected values
      * 
@@ -39,11 +39,37 @@ function optionChanged() {
       var selValues = [];
       selValues.push($('#selState').val()); 
       console.log(selValues);
-      d3.select("#h-pulldown").text("");
       d3.select("#h-pulldown").text(selValues);
+    //  trigger for changes
+
+    $('#selState').multiselect({
+        onDropdownHidden: function(event) {
+        console.log('Dropdown closed.');
+        }
+    });
+      
+    // place below the instructions when the states are selected
+
+    $('#selState').multiselect({
+        onDropdownShow: function(event) {
+        d3.select("#h-pulldown").text("          ");
+        console.log("dropdpwn open")
+            
+        }
+    });
+      
+    console.log(`You changed the value. It is now: ${selValues}`);
+
+    //   var button = d3.select("#filter-btn");
+
+
+
+
+    //   button.on("click", function() {
+
       
               
-      console.log(`You changed the value. It is now: ${selValues}`);
+     
      
 };
         
