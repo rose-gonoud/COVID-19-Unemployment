@@ -1,11 +1,10 @@
-var apiReturn = [];
+// Set default dates in date fields
+d3.select("#startDate").property("value", "2019-01-01");
+d3.select("#endDate").property("value", moment().format("YYYY[-]MM[-]DD"));
 
 d3.json(`http://127.0.0.1:5000/unemploymentData`, (data) => {
   apiReturn = data;
 });
-
-// State selection
-console.log(stateData);
 
 pullDownMenu();
 
@@ -29,14 +28,9 @@ function pullDownMenu() {
 
 /**
  * When the select dropdown is changed this function will fire
- * @param {Number} selectedValue This is the selected id in the pulldow from #selDataset.
  */
 
 function optionChanged() {
-  /**
-   * collect selected values
-   *
-   */
   var selValues = [];
   selValues.push($("#selState").val());
   d3.select("#h-pulldown").text(selValues);
@@ -44,8 +38,13 @@ function optionChanged() {
   startDate = d3.select("#startDate").property("value");
   endDate = d3.select("#endDate").property("value");
 
+  // Reformat dates with moment.js
+  startDate = moment(startDate).format("YYYY[-]MM[-]DD");
+  endDate = moment(endDate).format("YYYY[-]MM[-]DD");
+
+  // Call out the the API with values from the filter fields
   d3.json(
-    `http://127.0.0.1:5000/unemploymentData?state_abbr=${selValues.toString()}`,
+    `http://127.0.0.1:5000/unemploymentData?state_abbr=${selValues.toString()}&start_date=${startDate}&end_date=${endDate}`,
     (data) => {
       apiReturn = data;
       console.log("api returned", apiReturn);
