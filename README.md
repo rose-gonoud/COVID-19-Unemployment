@@ -35,10 +35,10 @@ The above link provided us with the raw unemployment data - it was downloaded as
 
 - [ ] Create a dashboard layout that visualizes the unemployment data in whatever ways seem good.
   - [x] Create a mock-up of the main dashboard.
-  - [ ] Create Index.js with places for each chart that we want
+  - [x] Create Index.js with places for each chart that we want
   - [ ] Create start date and end date selectors in the HTML (Two tick slider maybe?)
-  - [ ] Create state selector in HTML (consider a multiselect field)
-  - [ ] Display statistics section (max applications in range, min applications in range)
+  - [x] Create state selector in HTML (consider a multiselect field)
+  - [x] Display statistics section (max applications in range, min applications in range)
   - [ ] Line Chart
   - [ ] Doubling Rate?
 
