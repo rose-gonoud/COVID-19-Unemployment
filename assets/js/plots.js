@@ -17,7 +17,7 @@ function handleSubmit() {
 
 function buildPlot(state_abbr) {
 var url = `http://127.0.0.1:5000/unemploymentData?start_date=2020-01-01&state_abbr=${state_abbr}`;
-  d3.json(url).then(function(data) {
+  d3.json(url, function(data) {
     console.log(data);
     // Grab values from the response json object to build the plots
     var state_abbr = data.map(function(state){
@@ -66,7 +66,7 @@ var url = `http://127.0.0.1:5000/unemploymentData?start_date=2020-01-01&state_ab
       }
     };
 
-    Plotly.newPlot("plot", data, layout);
+    Plotly.newPlot(id = "plot", data, layout);
 
   });
 }
