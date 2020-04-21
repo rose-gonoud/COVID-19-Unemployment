@@ -22,23 +22,18 @@ function buildPlot(apiReturn) {
   var state_abbr = apiReturn.map(function (state) {
     return state.state_abbr;
   });
-  console.log(state_abbr);
   var state = apiReturn.map(function (state) {
     return state.state;
   });
-  console.log(state_abbr);
   var claims = apiReturn.map(function (state) {
     return state.initial_claims;
   });
-  console.log(claims);
   var startDate = apiReturn.map(function (state) {
     return state.reflecting_week_ended.slice(0, 16);
   });
-  console.log(startDate);
   var endDate = apiReturn.map(function (state) {
     return state.file_week_ended.slice(0, 16);
   });
-  console.log(endDate);
 
   var trace1 = {
     type: "scatter",
