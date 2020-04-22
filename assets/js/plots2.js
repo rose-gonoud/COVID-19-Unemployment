@@ -1,520 +1,535 @@
+// Submit Button handler
+function handleSubmit() {
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
 
-function buildPlot(apiReturn) {
-  console.log("apiReturn in buidPlot");
+  // Select the input value from the form
+  var state_abbr = d3.select("#stockInput").node().value;
+  console.log(state_abbr);
+
+  // clear the input value
+  d3.select("#stockInput").node().value = "";
+
+  // Build the plot 
+  buildPlot(state_abbr2);
+}
+
+function buildPlot(apiReturn1) {
+  console.log("apiReturn1 in buidPlot");
   let alabama = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Alabama") {
-      alabama.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Alabama") {
+      alabama.push(apiReturn1[i]);
     }
   }
 
   let alaska = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Alaska") {
-      alaska.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Alaska") {
+      alaska.push(apiReturn1[i]);
     }
   }
 
   let arizona = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Arizona") {
-      arizona.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Arizona") {
+      arizona.push(apiReturn1[i]);
     }
   }
 
   let arkansas = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Arkansas") {
-      arkansas.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Arkansas") {
+      arkansas.push(apiReturn1[i]);
     }
   }
 
   let california = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "California") {
-      california.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "California") {
+      california.push(apiReturn1[i]);
     }
   }
 
   let colorado = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Colorado") {
-      colorado.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Colorado") {
+      colorado.push(apiReturn1[i]);
     }
   }
 
   let connecticut = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Connecticut") {
-      connecticut.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Connecticut") {
+      connecticut.push(apiReturn1[i]);
     }
   }
 
   let delaware = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Delaware") {
-      delaware.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Delaware") {
+      delaware.push(apiReturn1[i]);
     }
   }
 
   let florida = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Florida") {
-      florida.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Florida") {
+      florida.push(apiReturn1[i]);
     }
   }
 
   let georgia = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Georgia") {
-      georgia.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Georgia") {
+      georgia.push(apiReturn1[i]);
     }
   }
 
   let hawaii = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Hawaii") {
-      hawaii.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Hawaii") {
+      hawaii.push(apiReturn1[i]);
     }
   }
 
   let idaho = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Idaho") {
-      idaho.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Idaho") {
+      idaho.push(apiReturn1[i]);
     }
   }
 
   let illinois = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Illinois") {
-      illinois.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Illinois") {
+      illinois.push(apiReturn1[i]);
     }
   }
 
   let indiana = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Indiana") {
-      indiana.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Indiana") {
+      indiana.push(apiReturn1[i]);
     }
   }
 
   let iowa = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Iowa") {
-      iowa.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Iowa") {
+      iowa.push(apiReturn1[i]);
     }
   }
 
   let kansas = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Kansas") {
-      kansas.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Kansas") {
+      kansas.push(apiReturn1[i]);
     }
   }
 
   let kentucky = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Kentucky") {
-      kentucky.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Kentucky") {
+      kentucky.push(apiReturn1[i]);
     }
   }
 
   let louisiana = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Louisiana") {
-      louisiana.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Louisiana") {
+      louisiana.push(apiReturn1[i]);
     }
   }
 
   let maine = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Maine") {
-      maine.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Maine") {
+      maine.push(apiReturn1[i]);
     }
   }
 
   let maryland = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Maryland") {
-      maryland.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Maryland") {
+      maryland.push(apiReturn1[i]);
     }
   }
 
   let massachusetts = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Massachusetts") {
-      massachusetts.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Massachusetts") {
+      massachusetts.push(apiReturn1[i]);
     }
   }
 
   let michigan = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Michigan") {
-      michigan.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Michigan") {
+      michigan.push(apiReturn1[i]);
     }
   }
 
   let minnesota = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "minnesota") {
-      minnesota.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "minnesota") {
+      minnesota.push(apiReturn1[i]);
     }
   }
 
   let mississippi = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Mississippi") {
-      mississippi.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Mississippi") {
+      mississippi.push(apiReturn1[i]);
     }
   }
 
   let missouri = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Missouri") {
-      missouri.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Missouri") {
+      missouri.push(apiReturn1[i]);
     }
   }
 
   let montana = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Montana") {
-      montana.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Montana") {
+      montana.push(apiReturn1[i]);
     }
   }
 
   let nebraska = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Nebraska") {
-      nebraska.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Nebraska") {
+      nebraska.push(apiReturn1[i]);
     }
   }
 
   let nevada = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Nevada") {
-      nevada.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Nevada") {
+      nevada.push(apiReturn1[i]);
     }
   }
 
   let new_hampshire = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "New Hampshire") {
-      new_hampshire.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "New Hampshire") {
+      new_hampshire.push(apiReturn1[i]);
     }
   }
 
   let new_jersey = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "New Jersey") {
-      new_jersey.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "New Jersey") {
+      new_jersey.push(apiReturn1[i]);
     }
   }
 
   let new_mexico = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "New Mexico") {
-      new_mexico.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "New Mexico") {
+      new_mexico.push(apiReturn1[i]);
     }
   }
 
   let new_york = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "New York") {
-      new_york.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "New York") {
+      new_york.push(apiReturn1[i]);
     }
   }
 
   let north_carolina = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "North Carolina") {
-      north_carolina.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "North Carolina") {
+      north_carolina.push(apiReturn1[i]);
     }
   }
 
   let north_dakota = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "North Dakota") {
-      north_dakota.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "North Dakota") {
+      north_dakota.push(apiReturn1[i]);
     }
   }
 
   let ohio = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Ohio") {
-      ohio.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Ohio") {
+      ohio.push(apiReturn1[i]);
     }
   }
 
   let oklahoma = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Oklahoma") {
-      oklahoma.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Oklahoma") {
+      oklahoma.push(apiReturn1[i]);
     }
   }
 
   let oregon = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Oregon") {
-      oregon.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Oregon") {
+      oregon.push(apiReturn1[i]);
     }
   }
 
   let pennsylvania = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Pennsylvania") {
-      pennsylvania.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Pennsylvania") {
+      pennsylvania.push(apiReturn1[i]);
     }
   }
 
   let rhode_island = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Rhode Island") {
-      rhode_island.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Rhode Island") {
+      rhode_island.push(apiReturn1[i]);
     }
   }
 
   let south_carolina = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "South Carolina") {
-      south_carolina.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "South Carolina") {
+      south_carolina.push(apiReturn1[i]);
     }
   }
 
   let south_dakota = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "South Dakota") {
-      south_dakota.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "South Dakota") {
+      south_dakota.push(apiReturn1[i]);
     }
   }
 
   let tennessee = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Tennessee") {
-      tennessee.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Tennessee") {
+      tennessee.push(apiReturn1[i]);
     }
   }
 
   let texas = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Texas") {
-      texas.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Texas") {
+      texas.push(apiReturn1[i]);
     }
   }
 
   let utah = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Utah") {
-      utah.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Utah") {
+      utah.push(apiReturn1[i]);
     }
   }
 
   let vermont = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Vermont") {
-      vermont.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Vermont") {
+      vermont.push(apiReturn1[i]);
     }
   }
 
   let virginia = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Virginia") {
-      virginia.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Virginia") {
+      virginia.push(apiReturn1[i]);
     }
   }
 
   let washington = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Washington") {
-      washington.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Washington") {
+      washington.push(apiReturn1[i]);
     }
   }
 
   let west_virginia = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "West Virginia") {
-      west_virginia.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "West Virginia") {
+      west_virginia.push(apiReturn1[i]);
     }
   }
 
   let wisconsin = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Wisconsin") {
-      wisconsin.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "Wisconsin") {
+      wisconsin.push(apiReturn1[i]);
     }
   }
 
   let wyoming = [];
-  for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "wyoming") {
-      wyoming.push(apiReturn[i]);
+  for (let i = 0; i < apiReturn1.length; i++) {
+    if (apiReturn1[i].state === "wyoming") {
+      wyoming.push(apiReturn1[i]);
     }
   }
 
   // Grab values from the response json object to build the plots
-  var state_abbr = apiReturn.map(function (state) {
+  var state_abbr = apiReturn1.map(function (state) {
     return state.state_abbr;
   });
 
-  var state = apiReturn.map(function (state) {
+  var state = apiReturn1.map(function (state) {
     return state.state;
   });
   // claims for each state
-  var claims = apiReturn.map(function (state) {
-    return state.initial_claims;
+  var claims = apiReturn1.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_AL = alabama.map(function (state) {
-    return state.initial_claims;
+  var rate_AL = alabama.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_AK = alaska.map(function (state) {
-    return state.initial_claims;
+  var rate_AK = alaska.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_AZ = arizona.map(function (state) {
-    return state.initial_claims;
+  var rate_AZ = arizona.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_AR = arkansas.map(function (state) {
-    return state.initial_claims;
+  var rate_AR = arkansas.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_CA = california.map(function (state) {
-    return state.initial_claims;
+  var rate_CA = california.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_CO = colorado.map(function (state) {
-    return state.initial_claims;
+  var rate_CO = colorado.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_CT = connecticut.map(function (state) {
-    return state.initial_claims;
+  var rate_CT = connecticut.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_DE = delaware.map(function (state) {
-    return state.initial_claims;
+  var rate_DE = delaware.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_FL = florida.map(function (state) {
-    return state.initial_claims;
+  var rate_FL = florida.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_GA = georgia.map(function (state) {
-    return state.initial_claims;
+  var rate_GA = georgia.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_HI = hawaii.map(function (state) {
-    return state.initial_claims;
+  var rate_HI = hawaii.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_ID = idaho.map(function (state) {
-    return state.initial_claims;
+  var rate_ID = idaho.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_IL = illinois.map(function (state) {
-    return state.initial_claims;
+  var rate_IL = illinois.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_IN = indiana.map(function (state) {
-    return state.initial_claims;
+  var rate_IN = indiana.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_IA = iowa.map(function (state) {
-    return state.initial_claims;
+  var rate_IA = iowa.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_KS = kansas.map(function (state) {
-    return state.initial_claims;
+  var rate_KS = kansas.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_KY = kentucky.map(function (state) {
-    return state.initial_claims;
+  var rate_KY = kentucky.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_LA = louisiana.map(function (state) {
-    return state.initial_claims;
+  var rate_LA = louisiana.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_MA = maine.map(function (state) {
-    return state.initial_claims;
+  var rate_MA = maine.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_MD = maryland.map(function (state) {
-    return state.initial_claims;
+  var rate_MD = maryland.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_ME = massachusetts.map(function (state) {
-    return state.initial_claims;
+  var rate_ME = massachusetts.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_MI = michigan.map(function (state) {
-    return state.initial_claims;
+  var rate_MI = michigan.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_MN = minnesota.map(function (state) {
-    return state.initial_claims;
+  var rate_MN = minnesota.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_MS = mississippi.map(function (state) {
-    return state.initial_claims;
+  var rate_MS = mississippi.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_MO = missouri.map(function (state) {
-    return state.initial_claims;
+  var rate_MO = missouri.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_MT = montana.map(function (state) {
-    return state.initial_claims;
+  var rate_MT = montana.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_NE = nebraska.map(function (state) {
-    return state.initial_claims;
+  var rate_NE = nebraska.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_NV = nevada.map(function (state) {
-    return state.initial_claims;
+  var rate_NV = nevada.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_NH = new_hampshire.map(function (state) {
-    return state.initial_claims;
+  var rate_NH = new_hampshire.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_NJ = new_jersey.map(function (state) {
-    return state.initial_claims;
+  var rate_NJ = new_jersey.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_NM = new_mexico.map(function (state) {
-    return state.initial_claims;
+  var rate_NM = new_mexico.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_NY = new_york.map(function (state) {
-    return state.initial_claims;
+  var rate_NY = new_york.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_NC = north_carolina.map(function (state) {
-    return state.initial_claims;
+  var rate_NC = north_carolina.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_ND = north_dakota.map(function (state) {
-    return state.initial_claims;
+  var rate_ND = north_dakota.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_OH = ohio.map(function (state) {
-    return state.initial_claims;
+  var rate_OH = ohio.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_OK = oklahoma.map(function (state) {
-    return state.initial_claims;
+  var rate_OK = oklahoma.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_OR = oregon.map(function (state) {
-    return state.initial_claims;
+  var rate_OR = oregon.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_PA = oregon.map(function (state) {
-    return state.initial_claims;
+  var rate_PA = oregon.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_RI = rhode_island.map(function (state) {
-    return state.initial_claims;
+  var rate_RI = rhode_island.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_SC = south_carolina.map(function (state) {
-    return state.initial_claims;
+  var rate_SC = south_carolina.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_SD = south_dakota.map(function (state) {
-    return state.initial_claims;
+  var rate_SD = south_dakota.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_TN = tennessee.map(function (state) {
-    return state.initial_claims;
+  var rate_TN = tennessee.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_TX = texas.map(function (state) {
-    return state.initial_claims;
+  var rate_TX = texas.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_UT = utah.map(function (state) {
-    return state.initial_claims;
+  var rate_UT = utah.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_VT = vermont.map(function (state) {
-    return state.initial_claims;
+  var rate_VT = vermont.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_VA = virginia.map(function (state) {
-    return state.initial_claims;
+  var rate_VA = virginia.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_WA = washington.map(function (state) {
-    return state.initial_claims;
+  var rate_WA = washington.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_WV = west_virginia.map(function (state) {
-    return state.initial_claims;
+  var rate_WV = west_virginia.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_WI = wisconsin.map(function (state) {
-    return state.initial_claims;
+  var rate_WI = wisconsin.map(function (state) {
+    return state.insured_unemployment_rate;
   });
-  var claims_WY = wyoming.map(function (state) {
-    return state.initial_claims;
+  var rate_WY = wyoming.map(function (state) {
+    return state.insured_unemployment_rate;
   });
   // Start date for each state
-  var startDate = apiReturn.map(function (state) {
+  var startDate = apiReturn1.map(function (state) {
     return state.file_week_ended.slice(0, 16);
   });
   var startDate_AL = alabama.map(function (state) {
@@ -668,7 +683,7 @@ function buildPlot(apiReturn) {
     return state.file_week_ended.slice(0, 16);
   });
 
-  // var endDate = apiReturn.map(function (state) {
+  // var endDate = apiReturn1.map(function (state) {
   //   return state.file_week_ended.slice(0, 16);
   // });
 
@@ -677,7 +692,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Alabama",
     x: startDate_AL,
-    y: claims_AL,
+    y: rate_AL,
     line: {
       color: "red",
     },
@@ -688,7 +703,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Alaska",
     x: startDate_AK,
-    y: claims_AK,
+    y: rate_AK,
     line: {
       color: "green",
     },
@@ -699,7 +714,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Arizona",
     x: startDate_AZ,
-    y: claims_AZ,
+    y: rate_AZ,
     line: {
       color: "blue",
     },
@@ -710,7 +725,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Arkansas",
     x: startDate_AR,
-    y: claims_AR,
+    y: rate_AR,
     line: {
       color: "#ff9966",
     },
@@ -721,7 +736,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "California",
     x: startDate_CA,
-    y: claims_CA,
+    y: rate_CA,
     line: {
       color: "lightgreen",
     },
@@ -732,7 +747,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Colorado",
     x: startDate_CO,
-    y: claims_CO,
+    y: rate_CO,
     line: {
       color: "brown",
     },
@@ -743,7 +758,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Connecticut",
     x: startDate_CT,
-    y: claims_CT,
+    y: rate_CT,
     line: {
       color: "grey",
     },
@@ -754,7 +769,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Delaware",
     x: startDate_DE,
-    y: claims_DE,
+    y: rate_DE,
     line: {
       color: "#lightblue",
     },
@@ -765,7 +780,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Florida",
     x: startDate_FL,
-    y: claims_FL,
+    y: rate_FL,
     line: {
       color: "orange",
     },
@@ -776,7 +791,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Georgia",
     x: startDate_GA,
-    y: claims_GA,
+    y: rate_GA,
     line: {
       color: "#lightred",
     },
@@ -787,7 +802,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Hawaii",
     x: startDate_HI,
-    y: claims_HI,
+    y: rate_HI,
     line: {
       color: "darkgreen",
     },
@@ -798,7 +813,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Idaho",
     x: startDate_ID,
-    y: claims_ID,
+    y: rate_ID,
     line: {
       color: "darkyellow",
     },
@@ -809,7 +824,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Illinois",
     x: startDate_IL,
-    y: claims_IL,
+    y: rate_IL,
     line: {
       color: "lightorange",
     },
@@ -820,7 +835,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Indiana",
     x: startDate_IN,
-    y: claims_IN,
+    y: rate_IN,
     line: {
       color: "darkred",
     },
@@ -831,7 +846,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Iowa",
     x: startDate_IA,
-    y: claims_IA,
+    y: rate_IA,
     line: {
       color: "lightyellow",
     },
@@ -842,7 +857,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Kansas",
     x: startDate_KS,
-    y: claims_KS,
+    y: rate_KS,
     line: {
       color: "#darkblue",
     },
@@ -853,7 +868,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Kentucky",
     x: startDate_KY,
-    y: claims_KY,
+    y: rate_KY,
     line: {
       color: "#99ff99",
     },
@@ -864,7 +879,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Louisiana",
     x: startDate_LA,
-    y: claims_LA,
+    y: rate_LA,
     line: {
       color: "purple",
     },
@@ -875,7 +890,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Maine",
     x: startDate_MA,
-    y: claims_MA,
+    y: rate_MA,
     line: {
       color: "lightpurple",
     },
@@ -886,7 +901,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Maryland",
     x: startDate_MD,
-    y: claims_MD,
+    y: rate_MD,
     line: {
       color: "lightorange",
     },
@@ -897,7 +912,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Massachusetts",
     x: startDate_ME,
-    y: claims_ME,
+    y: rate_ME,
     line: {
       color: "black",
     },
@@ -908,7 +923,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Michigan",
     x: startDate_MI,
-    y: claims_MI,
+    y: rate_MI,
     line: {
       color: "lightgrey",
     },
@@ -919,7 +934,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Minnesota",
     x: startDate_MN,
-    y: claims_MN,
+    y: rate_MN,
     line: {
       color: "#6666ff",
     },
@@ -930,7 +945,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Mississippi",
     x: startDate_MS,
-    y: claims_MS,
+    y: rate_MS,
     line: {
       color: "lightbrown",
     },
@@ -941,7 +956,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Missouri",
     x: startDate_MO,
-    y: claims_MO,
+    y: rate_MO,
     line: {
       color: "#66ffff",
     },
@@ -952,7 +967,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Montana",
     x: startDate_MT,
-    y: claims_MT,
+    y: rate_MT,
     line: {
       color: "gold",
     },
@@ -963,7 +978,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Nebraska",
     x: startDate_NE,
-    y: claims_NE,
+    y: rate_NE,
     line: {
       color: "silver",
     },
@@ -974,7 +989,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Nevada",
     x: startDate_NV,
-    y: claims_NV,
+    y: rate_NV,
     line: {
       color: "maroon",
     },
@@ -985,7 +1000,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "New Hampshire",
     x: startDate_NH,
-    y: claims_NH,
+    y: rate_NH,
     line: {
       color: "darkgreen",
     },
@@ -996,7 +1011,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "New Jersey",
     x: startDate_NJ,
-    y: claims_NJ,
+    y: rate_NJ,
     line: {
       color: "pink",
     },
@@ -1007,7 +1022,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "New Mexico",
     x: startDate_NM,
-    y: claims_NM,
+    y: rate_NM,
     line: {
       color: "#lightpink",
     },
@@ -1018,7 +1033,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "New York",
     x: startDate_NY,
-    y: claims_NY,
+    y: rate_NY,
     line: {
       color: "#darkpink",
     },
@@ -1029,7 +1044,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "North Carolina",
     x: startDate_NC,
-    y: claims_NC,
+    y: rate_NC,
     line: {
       color: "#cccc00",
     },
@@ -1040,7 +1055,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "North Dakota",
     x: startDate_ND,
-    y: claims_ND,
+    y: rate_ND,
     line: {
       color: "lightpurple",
     },
@@ -1051,7 +1066,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Ohio",
     x: startDate_OH,
-    y: claims_OH,
+    y: rate_OH,
     line: {
       color: "#005580",
     },
@@ -1062,7 +1077,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Oklahoma",
     x: startDate_OK,
-    y: claims_OK,
+    y: rate_OK,
     line: {
       color: " #e6ff99",
     },
@@ -1073,7 +1088,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Oregon",
     x: startDate_OR,
-    y: claims_OR,
+    y: rate_OR,
     line: {
       color: "#004d00",
     },
@@ -1084,7 +1099,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Pennsylvania",
     x: startDate_PA,
-    y: claims_PA,
+    y: rate_PA,
     line: {
       color: "#660000",
     },
@@ -1095,7 +1110,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Rhode Island",
     x: startDate_RI,
-    y: claims_RI,
+    y: rate_RI,
     line: {
       color: "#ffd480",
     },
@@ -1106,7 +1121,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "South Carolina",
     x: startDate_SC,
-    y: claims_SC,
+    y: rate_SC,
     line: {
       color: "#008080",
     },
@@ -1117,7 +1132,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "South Dakota",
     x: startDate_SD,
-    y: claims_SD,
+    y: rate_SD,
     line: {
       color: "#f9ecf2",
     },
@@ -1128,7 +1143,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Tennessee",
     x: startDate_TN,
-    y: claims_TN,
+    y: rate_TN,
     line: {
       color: "#ffad99",
     },
@@ -1139,7 +1154,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Texas",
     x: startDate_TX,
-    y: claims_TX,
+    y: rate_TX,
     line: {
       color: "#e68a00",
     },
@@ -1150,7 +1165,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Utah",
     x: startDate_UT,
-    y: claims_UT,
+    y: rate_UT,
     line: {
       color: "#4dff4d",
     },
@@ -1161,7 +1176,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Vermont",
     x: startDate_VT,
-    y: claims_VT,
+    y: rate_VT,
     line: {
       color: "#aaff00",
     },
@@ -1172,7 +1187,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Virginia",
     x: startDate_VA,
-    y: claims_VA,
+    y: rate_VA,
     line: {
       color: "#1f3d7a",
     },
@@ -1183,7 +1198,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Washington",
     x: startDate_WA,
-    y: claims_WA,
+    y: rate_WA,
     line: {
       color: "#001a4d",
     },
@@ -1194,7 +1209,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "West Virginia",
     x: startDate_WV,
-    y: claims_WV,
+    y: rate_WV,
     line: {
       color: "#e6ffee",
     },
@@ -1205,7 +1220,7 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Wisconsin",
     x: startDate_WI,
-    y: claims_WI,
+    y: rate_WI,
     line: {
       color: "#cc2900",
     },
@@ -1216,12 +1231,12 @@ function buildPlot(apiReturn) {
     mode: "lines",
     name: "Wyoming",
     x: startDate_WY,
-    y: claims_WY,
+    y: rate_WY,
     line: {
       color: "#001a00",
     },
   };
-  var apiReturn = [
+  var apiReturn1 = [
     Alabama,
     Alaska,
     Arizona,
@@ -1274,8 +1289,8 @@ function buildPlot(apiReturn) {
     Wyoming,
   ];
 
-  var layout = {
-    title: `Unemployment claims`,
+  var layout1 = {
+    title: `Insured Unemployment Rate`,
     xaxis: {
       range: [startDate],
       title: "Date",
@@ -1283,10 +1298,12 @@ function buildPlot(apiReturn) {
     yaxis: {
       autorange: true,
       type: "linear",
-      title: "Number of Claims",
+      title: "Unemployent Rate ",
     },
   };
 
-  Plotly.newPlot((id = "plot"), apiReturn, layout);
+  Plotly.newPlot((id = "plot1"), apiReturn1, layout1);
 }
 
+// Add event listener for submit button
+d3.select("#submit").on("click", handleSubmit);
