@@ -6,7 +6,7 @@ function populateSummaryStats(data) {
   let stats = calculateStats(data);
 
   for (let [key, value] of Object.entries(stats)) {
-    d3.select("#summaryStats").append("div").text(`${key}: ${value}`);
+    d3.select("#summaryStats").append("div").text(`${key} :  ${value}`);
   }
 }
 
@@ -17,8 +17,14 @@ function calculateStats(data) {
   stats["State With the Most Continued Claims"] = getStateWithMaxContClaims(
     data
   );
-  stats["Average number of New Claims"] = getAvgNewClaims(data);
-  stats[""] = getAvgUnemploymentRate(data);
+  stats["Average Number of New Claims"] = getAvgNewClaims(data);
+  stats["Average Unemployment Rate"] = getAvgUnemploymentRate(data);
+  stats["State With Highest Unemployment Rate"] = getStateWithMaxUnempRate(
+    data
+  );
+  stats[
+    "State with Most Continued Claims Currently"
+  ] = getStateWithMaxContClaims(filterMostRecentWeekData(data));
 
   maxDate = filterMostRecentWeekData(data);
 
@@ -52,7 +58,7 @@ function getAvgNewClaims(data) {
   // calculate an average
   let avgInitialClaims = total / allInitialClaims.length;
 
-  return avgInitialClaims;
+  return avgInitialClaims.toFixed(2);
 }
 
 function getAvgUnemploymentRate(data) {
@@ -69,9 +75,20 @@ function getAvgUnemploymentRate(data) {
   // calculate an average
   let avgUnemploymentRate = total / unemploymentRate.length;
 
-  // let avgContinuedClaimsIndex = allContinuedClaims.indexOf(avgContinuedClaim);
+  return `${avgUnemploymentRate.toFixed(2)}%`;
+}
 
-  return avgUnemploymentRate;
+function getStateWithMaxUnempRate(data) {
+  //Get the state with the most open claims within the period.
+  let unemploymentRate = data.map((entry) => {
+    return entry.insured_unemployment_rate;
+  });
+
+  let maxUnemploymentRate = Math.max(...unemploymentRate);
+
+  let maxUnemploymentRateIndex = unemploymentRate.indexOf(maxUnemploymentRate);
+
+  return data[maxUnemploymentRateIndex].state;
 }
 
 //Takes in the data set and returns only the elements where week filed is most recont
