@@ -530,161 +530,161 @@ function buildPlot(apiReturn1) {
   });
   // Start date for each state
   var startDate = apiReturn1.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_AL = alabama.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_AK = alaska.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_AZ = arizona.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_AR = arkansas.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_CA = california.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_CO = colorado.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_CT = connecticut.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_DE = delaware.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_FL = florida.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_GA = georgia.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_HI = hawaii.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_ID = idaho.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_IL = illinois.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_IN = indiana.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_IA = iowa.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_KS = kansas.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_KY = kentucky.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_LA = louisiana.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_MA = maine.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_MD = maryland.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_ME = massachusetts.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_MI = michigan.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_MN = minnesota.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_MS = mississippi.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_MO = missouri.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_MT = montana.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_NE = nebraska.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_NV = nevada.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_NH = new_hampshire.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_NJ = new_jersey.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_NM = new_mexico.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_NY = new_york.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_NC = north_carolina.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_ND = north_dakota.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_OH = ohio.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_OK = oklahoma.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_OR = oregon.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_PA = oregon.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_RI = rhode_island.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_SC = south_carolina.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_SD = south_dakota.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_TN = tennessee.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_TX = texas.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_UT = utah.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_VT = vermont.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_VA = virginia.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_WA = washington.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_WV = west_virginia.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_WI = wisconsin.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
   var startDate_WY = wyoming.map(function (state) {
-    return state.file_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(4,16);
   });
 
   // var endDate = apiReturn1.map(function (state) {
-  //   return state.file_week_ended.slice(0, 16);
+  //   return state.file_week_ended.slice(4,16);
   // });
 
   var Alabama = {

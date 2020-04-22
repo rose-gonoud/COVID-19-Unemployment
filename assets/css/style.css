@@ -313,3 +313,7 @@ select {
   margin-bottom: 0px;
   opacity: 0.7;
 }
+
+.well {
+  border-radius: 8px;
+}
