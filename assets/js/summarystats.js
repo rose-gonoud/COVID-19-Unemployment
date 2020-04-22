@@ -7,7 +7,7 @@ function populateSummaryStats(data) {
   let stats = calculateStats(data);
 
   for (let [key, value] of Object.entries(stats)) {
-    d3.select("#summaryStats").append("div").text(`${key} :  ${value}`);
+    d3.select("#summaryStats").append("div").text(`${key} : ${value}`);
   }
 }
 
@@ -80,12 +80,54 @@ function getAvgUnemploymentRate(data) {
 }
 
 function getStateWithMaxUnempRate(data) {
-  //Get the state with the most open claims within the period.
-  let unemploymentRate = data.map((entry) => {
-    return entry.insured_unemployment_rate;
-  });
 
-  let maxUnemploymentRate = Math.max(...unemploymentRate);
+    data.sort((a, b) => (a.state > b.state) ? 1 : -1)
+
+    //Get the unemployment rate.
+    let unemploymentRate = data.map((entry) => {
+        return entry.insured_unemployment_rate;
+    });
+
+    //   Get all the states
+    let states = data.map((entry) => {
+        return entry.state;
+    });
+
+    console.log("unemp", unemploymentRate)
+    console.log("states", states)
+  
+    //Define empty list to take your avg unemployment by state
+    var stateAvgs = []
+    instancesOfState = 0
+    stateSum = 0
+    //Loop through unemploymentRate
+    unemploymentRate.forEach( (entry, index) => {
+        //Increment a counter (represents total number of entries for each state)
+        instancesOfState += 1
+        //Add current value to variable that holds sum of averages by state
+        stateSum = stateSum + entry
+
+        if (states[index] != states[index+1]) {
+            //When this condition is run we are on the last entry for this state
+            //Calculate your average and save it to array
+            console.log(stateSum)
+            console.log(instancesOfState)
+            stateAvgs.push( stateSum / instancesOfState )
+            // Reset counter vars
+            instancesOfState = 0
+            stateSum = 0
+        }
+    });
+
+    console.log("stateAvgs", stateAvgs)
+
+    var stateUnemploymentDict = {};
+    states.forEach((state, i) => stateUnemploymentDict[state] = stateAvgs[i]);
+    console.log(stateUnemploymentDict);
+
+
+
+  let maxUnemploymentRate = Math.max(...stateAvgs);
 
   let maxUnemploymentRateIndex = unemploymentRate.indexOf(maxUnemploymentRate);
 
