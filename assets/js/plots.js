@@ -1,4 +1,3 @@
-console.log("apiReturn in plots", apiReturn);
 // Submit Button handler
 function handleSubmit() {
   // Prevent the page from refreshing
@@ -16,366 +15,365 @@ function handleSubmit() {
 }
 
 function buildPlot(apiReturn) {
-  var url = `http://127.0.0.1:5000/unemploymentapiReturn?start_date=2020-01-01&state_abbr=${state_abbr}`;
   console.log("apiReturn in buidPlot");
-let alabama = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let alabama = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Alabama") {
-        alabama.push(apiReturn[i]);
+      alabama.push(apiReturn[i]);
     }
-}
-
-let alaska = [];
-for (let i = 0; i < apiReturn.length; i++) {
-    if (apiReturn[i].state === "Alaska") {
-        alaska.push(apiReturn[i]);
-    }
-}
-
-let arizona = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Arizona") {
-      arizona.push(apiReturn[i]);
   }
-}
 
-let arkansas = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let alaska = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Alaska") {
+      alaska.push(apiReturn[i]);
+    }
+  }
+
+  let arizona = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Arizona") {
+      arizona.push(apiReturn[i]);
+    }
+  }
+
+  let arkansas = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Arkansas") {
       arkansas.push(apiReturn[i]);
     }
-}
+  }
 
-let california = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let california = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "California") {
       california.push(apiReturn[i]);
     }
-}
-
-let colorado = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Colorado") {
-    colorado.push(apiReturn[i]);
   }
-}
 
-let connecticut = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let colorado = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Colorado") {
+      colorado.push(apiReturn[i]);
+    }
+  }
+
+  let connecticut = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Connecticut") {
       connecticut.push(apiReturn[i]);
     }
-}
+  }
 
-let delaware = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let delaware = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Delaware") {
       delaware.push(apiReturn[i]);
     }
-}
-
-let florida = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Florida") {
-    florida.push(apiReturn[i]);
   }
-}
 
-let georgia = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let florida = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Florida") {
+      florida.push(apiReturn[i]);
+    }
+  }
+
+  let georgia = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Georgia") {
       georgia.push(apiReturn[i]);
     }
-}
+  }
 
-let hawaii = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let hawaii = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Hawaii") {
       hawaii.push(apiReturn[i]);
     }
-}
-
-let idaho = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Idaho") {
-    idaho.push(apiReturn[i]);
   }
-}
 
-let illinois = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let idaho = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Idaho") {
+      idaho.push(apiReturn[i]);
+    }
+  }
+
+  let illinois = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Illinois") {
       illinois.push(apiReturn[i]);
     }
-}
+  }
 
-let indiana = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let indiana = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Indiana") {
       indiana.push(apiReturn[i]);
     }
-}
-
-let iowa = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Iowa") {
-    iowa.push(apiReturn[i]);
   }
-}
 
-let kansas = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let iowa = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Iowa") {
+      iowa.push(apiReturn[i]);
+    }
+  }
+
+  let kansas = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Kansas") {
       kansas.push(apiReturn[i]);
     }
-}
+  }
 
-let kentucky = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let kentucky = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Kentucky") {
       kentucky.push(apiReturn[i]);
     }
-}
-
-let louisiana = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Louisiana") {
-    louisiana.push(apiReturn[i]);
   }
-}
 
-let maine = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let louisiana = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Louisiana") {
+      louisiana.push(apiReturn[i]);
+    }
+  }
+
+  let maine = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Maine") {
       maine.push(apiReturn[i]);
     }
-}
+  }
 
-let maryland = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let maryland = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Maryland") {
       maryland.push(apiReturn[i]);
     }
-}
-
-let massachusetts = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Massachusetts") {
-    massachusetts.push(apiReturn[i]);
   }
-}
 
-let michigan = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let massachusetts = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Massachusetts") {
+      massachusetts.push(apiReturn[i]);
+    }
+  }
+
+  let michigan = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Michigan") {
       michigan.push(apiReturn[i]);
     }
-}
+  }
 
-let minnesota = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let minnesota = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "minnesota") {
       minnesota.push(apiReturn[i]);
     }
-}
-
-let mississippi = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Mississippi") {
-    mississippi.push(apiReturn[i]);
   }
-}
 
-let missouri = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let mississippi = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Mississippi") {
+      mississippi.push(apiReturn[i]);
+    }
+  }
+
+  let missouri = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Missouri") {
       missouri.push(apiReturn[i]);
     }
-}
+  }
 
-let montana = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let montana = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Montana") {
       montana.push(apiReturn[i]);
     }
-}
-
-let nebraska = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Nebraska") {
-    nebraska.push(apiReturn[i]);
   }
-}
 
-let nevada = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let nebraska = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Nebraska") {
+      nebraska.push(apiReturn[i]);
+    }
+  }
+
+  let nevada = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Nevada") {
       nevada.push(apiReturn[i]);
     }
-}
+  }
 
-let new_hampshire = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let new_hampshire = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "New Hampshire") {
       new_hampshire.push(apiReturn[i]);
     }
-}
-
-let new_jersey = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "New Jersey") {
-    new_jersey.push(apiReturn[i]);
   }
-}
 
-let new_mexico = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let new_jersey = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "New Jersey") {
+      new_jersey.push(apiReturn[i]);
+    }
+  }
+
+  let new_mexico = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "New Mexico") {
       new_mexico.push(apiReturn[i]);
     }
-}
+  }
 
-let new_york = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let new_york = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "New York") {
       new_york.push(apiReturn[i]);
     }
-}
-
-let north_carolina = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "North Carolina") {
-    north_carolina.push(apiReturn[i]);
   }
-}
 
-let north_dakota = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let north_carolina = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "North Carolina") {
+      north_carolina.push(apiReturn[i]);
+    }
+  }
+
+  let north_dakota = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "North Dakota") {
       north_dakota.push(apiReturn[i]);
     }
-}
+  }
 
-let ohio = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let ohio = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Ohio") {
       ohio.push(apiReturn[i]);
     }
-}
-
-let oklahoma = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Oklahoma") {
-    oklahoma.push(apiReturn[i]);
   }
-}
 
-let oregon = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let oklahoma = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Oklahoma") {
+      oklahoma.push(apiReturn[i]);
+    }
+  }
+
+  let oregon = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Oregon") {
       oregon.push(apiReturn[i]);
     }
-}
+  }
 
-let pennsylvania = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let pennsylvania = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Pennsylvania") {
       pennsylvania.push(apiReturn[i]);
     }
-}
-
-let rhode_island = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Rhode Island") {
-    rhode_island.push(apiReturn[i]);
   }
-}
 
-let south_carolina = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let rhode_island = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Rhode Island") {
+      rhode_island.push(apiReturn[i]);
+    }
+  }
+
+  let south_carolina = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "South Carolina") {
       south_carolina.push(apiReturn[i]);
     }
-}
+  }
 
-let south_dakota = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let south_dakota = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "South Dakota") {
       south_dakota.push(apiReturn[i]);
     }
-}
-
-let tennessee = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Tennessee") {
-    tennessee.push(apiReturn[i]);
   }
-}
 
-let texas = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let tennessee = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Tennessee") {
+      tennessee.push(apiReturn[i]);
+    }
+  }
+
+  let texas = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Texas") {
       texas.push(apiReturn[i]);
     }
-}
+  }
 
-let utah = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let utah = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Utah") {
       utah.push(apiReturn[i]);
     }
-}
-
-let vermont = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "Vermont") {
-    vermont.push(apiReturn[i]);
   }
-}
 
-let virginia = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let vermont = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "Vermont") {
+      vermont.push(apiReturn[i]);
+    }
+  }
+
+  let virginia = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Virginia") {
       virginia.push(apiReturn[i]);
     }
-}
+  }
 
-let washington = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let washington = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Washington") {
       washington.push(apiReturn[i]);
     }
-}
-
-let west_virginia = [];
-for (let i = 0; i < apiReturn.length; i++) {
-  if (apiReturn[i].state === "West Virginia") {
-    west_virginia.push(apiReturn[i]);
   }
-}
 
-let wisconsin = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let west_virginia = [];
+  for (let i = 0; i < apiReturn.length; i++) {
+    if (apiReturn[i].state === "West Virginia") {
+      west_virginia.push(apiReturn[i]);
+    }
+  }
+
+  let wisconsin = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Wisconsin") {
       wisconsin.push(apiReturn[i]);
     }
-}
+  }
 
-let wyoming = [];
-for (let i = 0; i < apiReturn.length; i++) {
+  let wyoming = [];
+  for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "wyoming") {
       wyoming.push(apiReturn[i]);
     }
-}
+  }
 
   // Grab values from the response json object to build the plots
   var state_abbr = apiReturn.map(function (state) {
     return state.state_abbr;
   });
- 
+
   var state = apiReturn.map(function (state) {
     return state.state;
-  }); 
+  });
   // claims for each state
   var claims = apiReturn.map(function (state) {
     return state.initial_claims;
@@ -697,8 +695,7 @@ for (let i = 0; i < apiReturn.length; i++) {
     y: claims_AL,
     line: {
       color: "red",
-
-  }
+    },
   };
 
   var Alaska = {
@@ -710,7 +707,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "green",
     },
-    
   };
 
   var Arizona = {
@@ -722,7 +718,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Arkansas = {
@@ -734,7 +729,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#blue",
     },
-    
   };
 
   var California = {
@@ -746,7 +740,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "lightgreen",
     },
-    
   };
 
   var Colorado = {
@@ -758,7 +751,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "brown",
     },
-    
   };
 
   var Connecticut = {
@@ -770,7 +762,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "grey",
     },
-    
   };
 
   var Delaware = {
@@ -782,7 +773,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#lightblue",
     },
-    
   };
 
   var Florida = {
@@ -794,7 +784,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "orange",
     },
-    
   };
 
   var Georgia = {
@@ -806,7 +795,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#lightred",
     },
-    
   };
 
   var Hawaii = {
@@ -818,7 +806,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "darkgreen",
     },
-    
   };
 
   var Idaho = {
@@ -830,7 +817,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "darkyellow",
     },
-    
   };
 
   var Illinois = {
@@ -842,7 +828,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "lightorange",
     },
-    
   };
 
   var Indiana = {
@@ -854,7 +839,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "darkred",
     },
-    
   };
 
   var Iowa = {
@@ -866,7 +850,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "lightyellow",
     },
-    
   };
 
   var Kansas = {
@@ -878,7 +861,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#darkblue",
     },
-    
   };
 
   var Kentucky = {
@@ -890,7 +872,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "brightblue",
     },
-    
   };
 
   var Louisiana = {
@@ -902,7 +883,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "purple",
     },
-    
   };
 
   var Maine = {
@@ -914,7 +894,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "lightpurple",
     },
-    
   };
 
   var Maryland = {
@@ -926,7 +905,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "lightorange",
     },
-    
   };
 
   var Massachusetts = {
@@ -938,7 +916,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "black",
     },
-    
   };
 
   var Michigan = {
@@ -950,7 +927,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "lightgrey",
     },
-    
   };
 
   var Minnesota = {
@@ -962,7 +938,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Mississippi = {
@@ -974,7 +949,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "lightbrown",
     },
-    
   };
 
   var Missouri = {
@@ -986,7 +960,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "brightyellow",
     },
-    
   };
 
   var Montana = {
@@ -998,7 +971,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "gold",
     },
-    
   };
 
   var Nebraska = {
@@ -1010,7 +982,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "silver",
     },
-    
   };
 
   var Nevada = {
@@ -1022,7 +993,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "maroon",
     },
-    
   };
 
   var New_Hampshire = {
@@ -1034,7 +1004,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "darkgreen",
     },
-    
   };
 
   var New_Jersey = {
@@ -1046,7 +1015,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "pink",
     },
-    
   };
 
   var New_Mexico = {
@@ -1058,7 +1026,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#lightpink",
     },
-    
   };
 
   var New_York = {
@@ -1070,7 +1037,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#darkpink",
     },
-    
   };
 
   var North_Carolina = {
@@ -1082,7 +1048,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "",
     },
-    
   };
 
   var North_Dakota = {
@@ -1094,7 +1059,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "lightpurple",
     },
-    
   };
 
   var Ohio = {
@@ -1106,7 +1070,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "silver",
     },
-    
   };
 
   var Oklahoma = {
@@ -1118,7 +1081,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "red",
     },
-    
   };
 
   var Oregon = {
@@ -1130,7 +1092,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Pennsylvania = {
@@ -1142,11 +1103,9 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
-  var Rhode_Island
-  = {
+  var Rhode_Island = {
     type: "scatter",
     mode: "lines",
     name: "Rhode Island",
@@ -1155,7 +1114,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var South_Carolina = {
@@ -1167,7 +1125,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var South_Dakota = {
@@ -1179,7 +1136,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Tennessee = {
@@ -1191,7 +1147,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Texas = {
@@ -1203,7 +1158,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Utah = {
@@ -1215,7 +1169,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Vermont = {
@@ -1227,7 +1180,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Virginia = {
@@ -1239,7 +1191,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Washington = {
@@ -1251,7 +1202,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var West_Virginia = {
@@ -1263,7 +1213,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Wisconsin = {
@@ -1275,7 +1224,6 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
 
   var Wyoming = {
@@ -1287,23 +1235,70 @@ for (let i = 0; i < apiReturn.length; i++) {
     line: {
       color: "#17BECF",
     },
-    
   };
-  var apiReturn = [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Florida, Georgia, Hawaii, Idaho, Illinois, 
-    Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, 
-    Nevada, New_Hampshire, New_Jersey, New_Mexico, New_York, North_Carolina, North_Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode_Island, 
-    South_Carolina, South_Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West_Virginia, Wisconsin, Wyoming ];
+  var apiReturn = [
+    Alabama,
+    Alaska,
+    Arizona,
+    Arkansas,
+    California,
+    Colorado,
+    Connecticut,
+    Delaware,
+    Florida,
+    Georgia,
+    Hawaii,
+    Idaho,
+    Illinois,
+    Indiana,
+    Iowa,
+    Kansas,
+    Kentucky,
+    Louisiana,
+    Maine,
+    Maryland,
+    Massachusetts,
+    Michigan,
+    Minnesota,
+    Mississippi,
+    Missouri,
+    Montana,
+    Nebraska,
+    Nevada,
+    New_Hampshire,
+    New_Jersey,
+    New_Mexico,
+    New_York,
+    North_Carolina,
+    North_Dakota,
+    Ohio,
+    Oklahoma,
+    Oregon,
+    Pennsylvania,
+    Rhode_Island,
+    South_Carolina,
+    South_Dakota,
+    Tennessee,
+    Texas,
+    Utah,
+    Vermont,
+    Virginia,
+    Washington,
+    West_Virginia,
+    Wisconsin,
+    Wyoming,
+  ];
 
   var layout = {
     title: `Unemployment claims`,
     xaxis: {
       range: [startDate],
-      title : "Date"
+      title: "Date",
     },
     yaxis: {
       autorange: true,
       type: "linear",
-      title : "Number of Claims"
+      title: "Number of Claims",
     },
   };
 
@@ -1312,4 +1307,3 @@ for (let i = 0; i < apiReturn.length; i++) {
 
 // Add event listener for submit button
 d3.select("#submit").on("click", handleSubmit);
-

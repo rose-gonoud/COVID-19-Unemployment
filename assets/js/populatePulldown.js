@@ -2,9 +2,8 @@
 d3.select("#startDate").property("value", "2019-01-01");
 d3.select("#endDate").property("value", moment().format("YYYY[-]MM[-]DD"));
 
-d3.json(`http://127.0.0.1:5000/unemploymentData`, (data) => {
-  apiReturn = data;
-});
+//Initial API call on page load
+optionChanged();
 
 pullDownMenu();
 
@@ -42,14 +41,22 @@ function optionChanged() {
   startDate = moment(startDate).format("YYYY[-]MM[-]DD");
   endDate = moment(endDate).format("YYYY[-]MM[-]DD");
 
+  //Build API call
+  baseURL =
+    "https://unemployment-during-covid19.herokuapp.com/unemploymentData";
+  queryString = `?start_date=${startDate}&end_date=${endDate}`;
+
+  //If no states are selected, default to returning all state data
+  if (selValues.length > 0) {
+    queryString += `&state_abbr=${selValues.toString()}`;
+  }
+
   // Call out the the API with values from the filter fields
-  d3.json(
-    `http://127.0.0.1:5000/unemploymentData?state_abbr=${selValues.toString()}&start_date=${startDate}&end_date=${endDate}`,
-    (data) => {
-      apiReturn = data;
-      console.log("api returned", apiReturn);
-      buildPlot(data);
-      buildChloropleth(data);
-    }
-  );
+  d3.json(`${baseURL}${queryString}`, (data) => {
+    apiReturn = data;
+    console.log("api returned", apiReturn);
+    buildPlot(data);
+    buildChloropleth(data);
+    populateSummaryStats(data);
+  });
 }
