@@ -125,7 +125,8 @@ function getStateWithMaxUnempRate(data) {
     });
 
     let maxUnemploymentRate = Math.max(...avgs)
-    let maxUnemploymentRateIndex = avgs.indexOf(maxUnemploymentRate);
+    let maxUnemploymentRateIndex = avgs.indexOf(maxUnemploymentRate)
+    console.log(stateAvgs[maxUnemploymentRateIndex].state);
 
     return stateAvgs[maxUnemploymentRateIndex].state;
 }

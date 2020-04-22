@@ -71,6 +71,13 @@
     <script type="text/javascript" src="bootstrap4/bootstrap-multiselect-dropdown/dist/js/bootstrap-multiselect.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
+    <!-- Moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <!-- Mobiscroll JS and CSS Includes -->
+  <link rel="stylesheet" href="assets/css/mobiscroll.javascript.min.css">
+  <script src="assets/js/mobiscroll.javascript.min.js"></script>
+
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   </head>
@@ -82,82 +89,68 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="index.html">Project 2
-              <img class="nav-ufo" src="/images/ufo.svg" alt="">
             </a>
           </div>
         </nav>
         <div class="hero text-center">
-          <h1>Unemployment Data</h1>
-          <h3>in the age of COVID-19</h3>
-          <p>Distribution statistics</p>
+          <h1>Unemployment Data <br> in the age of COVID-19</h1>
+          <p>Data Table</p>
         </div>
       
       <div class="new-container" align="center">  
 
-        <!-- Row containing filters. -->
+         <!-- Row containing filters. -->
       
       <div class="row" align="center">
         <div class="row margin-top-50" >
+          <div class="col-lg-2"></div>
           
-          <div class="col-lg-4" align="center"></div>
           <div class="col-lg-4" align="center">
-          <div class="well">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Select One or More States</h3>
-              </div>
-            <div class="panel-body">
-          
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#selState').multiselect({
-                    enableCaseInsensitiveFiltering: true,
-                    includeResetOption: true,
-                    buttonWidth: '400px',
-                    maxHeight: 200
-                  });
-                });
-            </script>
-
-            
-          <select id="selState" multiple="multiple" onchange="optionChanged(this.value)"></select>   
-              <!-- <button id="filter-btn-markets" type="button" class="btn btn-default">Select States</button> 
-              </div> -->
-          
-          </div>
-              <div class="panel-footer" id="pan-pulldown">
-                <h3 id="h-pulldown"></h3>
-                  
-                
-              </div>
-            </div>
-
-            <!-- Table data  -->
-
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Select a Date Range</h3>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Select One or More States</h3>
                 </div>
-              <div class="panel-body">
-            
-                <script>
-                  $('.input-daterange input').each(function() {
-                      $(this).datepicker('clearDates');
-                  });
-
-                </script>
-              <div class="input-group input-daterange">
-              <input id="startDate" type="text" class="form-control" value="2012-04-05">
-                <div class="input-group-addon">to</div>
-              <input id="endDate" type="text" class="form-control" value="2012-04-19">
+                <div class="panel-body">
+                  <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#selStateTable').multiselect({
+                        enableCaseInsensitiveFiltering: true,
+                        includeResetOption: true,
+                        buttonWidth: '400px',
+                        maxHeight: 200
+                      });
+                    });
+                  </script>
+                  <select id="selStateTable" multiple="multiple" onchange="optionChanged(this.value)"></select>
+                </div>
+                <!-- <div class="panel-footer" id="pan-pulldown"><h3 id="h-pulldown"></h3></div> -->
               </div>
-            
-              </div>
-              <div class="panel-footer">Panel footer</div>
-            </div> 
+            </div>  
 
+            <!--  -->
+          <div class="col-lg-4" align="center">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Select a Date Range</h3>
+                  </div>
+                <div class="panel-body">
+              
+                  <script>
+                    $('.input-daterange input').each(function() {
+                        $(this).datepicker('clearDates');
+                    });
+                  </script>
+                    <div class="input-group input-daterange">
+                        <input id="startDateTable" type="text" class="form-control">
+                          <div class="input-group-addon">to</div>
+                        <input id="endDateTable" type="text" class="form-control">
+                    </div>
+              
+                </div>
+                <div class="panel-footer"></div>
+              </div> 
           </div>
-          </div>
+
           <div class="col-lg-4" align="center"></div>
                       
         
@@ -198,7 +191,7 @@
 
       <!-- FOOTER -->
       <footer class="footer" align="center">
-        <span class="bottom">Project 2 </span>
+        <span class="bottom">Luisa Zini | Rose Gonoud | Nathan Higgs | Christian Thomson </span>
       </footer>
     </div> <!-- wrapper --> 
 
@@ -209,6 +202,7 @@
     <script type="text/javascript" src="assets/data/stateData.js"></script>
     <script type="text/javascript" src="assets/js/populatePulldown.js"></script>
     <script type="text/javascript" src="assets/js/populateTable.js"></script>
+    <script type="text/javascript" src="assets/js/date-calendar.js"></script>
 
   </body>
 </html>
