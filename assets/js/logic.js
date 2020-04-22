@@ -132,9 +132,9 @@ function zipAPIDataToGeoJSON(geoData, apiReturn) {
 }
 
 function buildChloropleth(apiReturn) {
-  // Load in geojson data
   geojson && geojson.remove();
 
+  // Load in geojson data
   var geoDataPath = "assets/data/US.geojson";
 
   d3.json(geoDataPath, function (data) {
