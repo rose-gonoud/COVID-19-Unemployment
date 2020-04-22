@@ -530,157 +530,157 @@ function buildPlot(apiReturn) {
   });
   // Start date for each state
   var startDate = apiReturn.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_AL = alabama.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_AK = alaska.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_AZ = arizona.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_AR = arkansas.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_CA = california.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_CO = colorado.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_CT = connecticut.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_DE = delaware.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_FL = florida.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_GA = georgia.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_HI = hawaii.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_ID = idaho.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_IL = illinois.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_IN = indiana.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_IA = iowa.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_KS = kansas.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_KY = kentucky.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_LA = louisiana.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_MA = maine.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_MD = maryland.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_ME = massachusetts.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_MI = michigan.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_MN = minnesota.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_MS = mississippi.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_MO = missouri.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_MT = montana.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_NE = nebraska.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_NV = nevada.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_NH = new_hampshire.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_NJ = new_jersey.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_NM = new_mexico.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_NY = new_york.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_NC = north_carolina.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_ND = north_dakota.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_OH = ohio.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_OK = oklahoma.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_OR = oregon.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_PA = oregon.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_RI = rhode_island.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_SC = south_carolina.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_SD = south_dakota.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_TN = tennessee.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_TX = texas.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_UT = utah.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_VT = vermont.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_VA = virginia.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_WA = washington.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_WV = west_virginia.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_WI = wisconsin.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
   var startDate_WY = wyoming.map(function (state) {
-    return state.reflecting_week_ended.slice(0, 16);
+    return state.file_week_ended.slice(0, 16);
   });
 
   // var endDate = apiReturn.map(function (state) {
@@ -716,7 +716,7 @@ function buildPlot(apiReturn) {
     x: startDate_AZ,
     y: claims_AZ,
     line: {
-      color: "#17BECF",
+      color: "blue",
     },
   };
 
@@ -727,7 +727,7 @@ function buildPlot(apiReturn) {
     x: startDate_AR,
     y: claims_AR,
     line: {
-      color: "#blue",
+      color: "#ff9966",
     },
   };
 
@@ -870,7 +870,7 @@ function buildPlot(apiReturn) {
     x: startDate_KY,
     y: claims_KY,
     line: {
-      color: "brightblue",
+      color: "#99ff99",
     },
   };
 
@@ -936,7 +936,7 @@ function buildPlot(apiReturn) {
     x: startDate_MN,
     y: claims_MN,
     line: {
-      color: "#17BECF",
+      color: "#6666ff",
     },
   };
 
@@ -958,7 +958,7 @@ function buildPlot(apiReturn) {
     x: startDate_MO,
     y: claims_MO,
     line: {
-      color: "brightyellow",
+      color: "#66ffff",
     },
   };
 
@@ -1046,7 +1046,7 @@ function buildPlot(apiReturn) {
     x: startDate_NC,
     y: claims_NC,
     line: {
-      color: "",
+      color: "#cccc00",
     },
   };
 
@@ -1068,7 +1068,7 @@ function buildPlot(apiReturn) {
     x: startDate_OH,
     y: claims_OH,
     line: {
-      color: "silver",
+      color: "#005580",
     },
   };
 
@@ -1079,7 +1079,7 @@ function buildPlot(apiReturn) {
     x: startDate_OK,
     y: claims_OK,
     line: {
-      color: "red",
+      color: " #e6ff99",
     },
   };
 
@@ -1090,7 +1090,7 @@ function buildPlot(apiReturn) {
     x: startDate_OR,
     y: claims_OR,
     line: {
-      color: "#17BECF",
+      color: "#004d00",
     },
   };
 
@@ -1101,7 +1101,7 @@ function buildPlot(apiReturn) {
     x: startDate_PA,
     y: claims_PA,
     line: {
-      color: "#17BECF",
+      color: "#660000",
     },
   };
 
@@ -1112,7 +1112,7 @@ function buildPlot(apiReturn) {
     x: startDate_RI,
     y: claims_RI,
     line: {
-      color: "#17BECF",
+      color: "#ffd480",
     },
   };
 
@@ -1123,7 +1123,7 @@ function buildPlot(apiReturn) {
     x: startDate_SC,
     y: claims_SC,
     line: {
-      color: "#17BECF",
+      color: "#008080",
     },
   };
 
@@ -1134,7 +1134,7 @@ function buildPlot(apiReturn) {
     x: startDate_SD,
     y: claims_SD,
     line: {
-      color: "#17BECF",
+      color: "#f9ecf2",
     },
   };
 
@@ -1145,7 +1145,7 @@ function buildPlot(apiReturn) {
     x: startDate_TN,
     y: claims_TN,
     line: {
-      color: "#17BECF",
+      color: "#ffad99",
     },
   };
 
@@ -1156,7 +1156,7 @@ function buildPlot(apiReturn) {
     x: startDate_TX,
     y: claims_TX,
     line: {
-      color: "#17BECF",
+      color: "#e68a00",
     },
   };
 
@@ -1167,7 +1167,7 @@ function buildPlot(apiReturn) {
     x: startDate_UT,
     y: claims_UT,
     line: {
-      color: "#17BECF",
+      color: "#4dff4d",
     },
   };
 
@@ -1178,7 +1178,7 @@ function buildPlot(apiReturn) {
     x: startDate_VT,
     y: claims_VT,
     line: {
-      color: "#17BECF",
+      color: "#aaff00",
     },
   };
 
@@ -1189,7 +1189,7 @@ function buildPlot(apiReturn) {
     x: startDate_VA,
     y: claims_VA,
     line: {
-      color: "#17BECF",
+      color: "#1f3d7a",
     },
   };
 
@@ -1200,7 +1200,7 @@ function buildPlot(apiReturn) {
     x: startDate_WA,
     y: claims_WA,
     line: {
-      color: "#17BECF",
+      color: "#001a4d",
     },
   };
 
@@ -1211,7 +1211,7 @@ function buildPlot(apiReturn) {
     x: startDate_WV,
     y: claims_WV,
     line: {
-      color: "#17BECF",
+      color: "#e6ffee",
     },
   };
 
@@ -1222,7 +1222,7 @@ function buildPlot(apiReturn) {
     x: startDate_WI,
     y: claims_WI,
     line: {
-      color: "#17BECF",
+      color: "#cc2900",
     },
   };
 
@@ -1233,7 +1233,7 @@ function buildPlot(apiReturn) {
     x: startDate_WY,
     y: claims_WY,
     line: {
-      color: "#17BECF",
+      color: "#001a00",
     },
   };
   var apiReturn = [
