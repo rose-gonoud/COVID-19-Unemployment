@@ -108,7 +108,7 @@
                   <script type="text/javascript">
                     $(document).ready(function () {
                       $("#selState").multiselect({
-                        enableCaseInsensitiveFiltering: true,
+                        // enableCaseInsensitiveFiltering: true,
                         includeResetOption: true,
                         buttonWidth: "400px",
                         maxHeight: 200,
@@ -132,17 +132,18 @@
                 </div>
                 <div class="panel-body">
                   <!-- Date Filters -->
+                  <script>
+                    $(".input-daterange input").each(function () {
+                      $(this).datepicker("clearDates");
+                    });
+                  </script>
                   <div class="input-group input-daterange">
                     <input id="startDate" type="text" class="form-control" />
                     <div class="input-group-addon">to</div>
                     <input id="endDate" type="text" class="form-control" />
                   </div>
 
-                  <script>
-                    $(".input-daterange input").each(function () {
-                      $(this).datepicker("clearDates");
-                    });
-                  </script>
+                  
                 </div>
                 <div class="panel-footer"></div>
               </div>

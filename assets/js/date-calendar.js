@@ -1,4 +1,4 @@
-// date clendars pulldown
+// date calendars pulldown
 
 mobiscroll.settings = {
     lang: 'en',                       // Specify language like: lang: 'pl' or omit setting to use default
