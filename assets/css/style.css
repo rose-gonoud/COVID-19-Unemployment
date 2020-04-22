@@ -305,6 +305,12 @@ select {
   width: 90%;
 }
 
+#graph{
+  height: auto;
+  min-height: 800px;
+  width: 90%;
+}
+
 .row {
   font-size: 14pt;
 }
