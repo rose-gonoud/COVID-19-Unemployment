@@ -1,5 +1,5 @@
 // Set default dates in date fields
-d3.select("#startDate").property("value", "2019-01-01");
+d3.select("#startDate").property("value", "2020-02-01");
 d3.select("#endDate").property("value", moment().format("YYYY[-]MM[-]DD"));
 
 // Bind the optionChanged method to the input fields
