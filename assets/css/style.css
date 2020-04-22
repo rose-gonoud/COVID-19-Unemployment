@@ -307,3 +307,7 @@ select {
 .row {
   font-size: 14pt;
 }
+
+.well {
+  border-radius: 8px;
+}
