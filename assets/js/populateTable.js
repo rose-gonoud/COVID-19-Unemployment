@@ -4,6 +4,9 @@ d3.json(`https://unemployment-during-covid19.herokuapp.com/unemploymentData`, (d
     console.log(data);
     buildTable(data);
 });
+optionChanged();
+
+pullDownMenu();
 
 
 // Get a reference to the table body
