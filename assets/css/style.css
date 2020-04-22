@@ -10,13 +10,6 @@ body {
   margin: 0;
 }
 
-/* #map,
-div,
-html {
-  height: 100%;
-  width: 100%;
-} */
-
 #map {
   height: 600px;
   width: 1200px;

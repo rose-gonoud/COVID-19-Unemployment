@@ -34,8 +34,8 @@ function optionChanged() {
   selValues.push($("#selState").val());
   d3.select("#h-pulldown").text(selValues);
 
-  startDate = d3.select("#startDate").property("value");
-  endDate = d3.select("#endDate").property("value");
+  let startDate = d3.select("#startDate").property("value");
+  let endDate = d3.select("#endDate").property("value");
 
   // Reformat dates with moment.js
   startDate = moment(startDate).format("YYYY[-]MM[-]DD");

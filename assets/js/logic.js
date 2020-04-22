@@ -75,6 +75,7 @@ function zipAPIDataToGeoJSON(geoData, apiReturn) {
 
 function buildChloropleth(apiReturn) {
   d3.json(geoDataPath, function (data) {
+    apiReturn = filterMostRecentWeekData(apiReturn);
     data = zipAPIDataToGeoJSON(data, apiReturn);
 
     console.log("data after zipping together files", data);
