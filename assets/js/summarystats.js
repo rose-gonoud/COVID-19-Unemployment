@@ -1,3 +1,4 @@
+//Populates the summary statistics box according to the data returned
 function populateSummaryStats(data) {
   console.log("data in summarystats", data);
 
@@ -14,17 +15,17 @@ function populateSummaryStats(data) {
 function calculateStats(data) {
   stats = {};
 
-  stats["State With the Most Continued Claims"] = getStateWithMaxContClaims(
-    data
-  );
+  stats[
+    "State With the Most Continued Claims (Entire Set)"
+  ] = getStateWithMaxContClaims(data);
+  stats[
+    "State with Most Continued Claims (Most Current Week)"
+  ] = getStateWithMaxContClaims(filterMostRecentWeekData(data));
   stats["Average Number of New Claims"] = getAvgNewClaims(data);
   stats["Average Unemployment Rate"] = getAvgUnemploymentRate(data);
   stats["State With Highest Unemployment Rate"] = getStateWithMaxUnempRate(
     data
   );
-  stats[
-    "State with Most Continued Claims Currently"
-  ] = getStateWithMaxContClaims(filterMostRecentWeekData(data));
 
   maxDate = filterMostRecentWeekData(data);
 
@@ -91,7 +92,7 @@ function getStateWithMaxUnempRate(data) {
   return data[maxUnemploymentRateIndex].state;
 }
 
-//Takes in the data set and returns only the elements where week filed is most recont
+//Takes in the data set and returns only the elements where week filed is most recent
 function filterMostRecentWeekData(data) {
   maxDate = moment(data[0].file_week_ended).format("YYYY[-]MM[-]DD");
 
@@ -108,12 +109,3 @@ function filterMostRecentWeekData(data) {
 
   return filteredSet;
 }
-
-// continued_claims: 22085
-// covered_employment: 1894608
-// file_week_ended: "Sat, 05 Jan 2019 00:00:00 GMT"
-// initial_claims: 6660
-// insured_unemployment_rate: 1.17
-// reflecting_week_ended: "Sat, 29 Dec 2018 00:00:00 GMT"
-// state: "Alabama"
-// state_abbr: "AL"
