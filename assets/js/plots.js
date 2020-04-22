@@ -716,7 +716,7 @@ function buildPlot(apiReturn) {
     x: startDate_AZ,
     y: claims_AZ,
     line: {
-      color: "#17BECF",
+      color: "blue",
     },
   };
 
@@ -727,7 +727,7 @@ function buildPlot(apiReturn) {
     x: startDate_AR,
     y: claims_AR,
     line: {
-      color: "#blue",
+      color: "#ff9966",
     },
   };
 
@@ -870,7 +870,7 @@ function buildPlot(apiReturn) {
     x: startDate_KY,
     y: claims_KY,
     line: {
-      color: "brightblue",
+      color: "#99ff99",
     },
   };
 
@@ -936,7 +936,7 @@ function buildPlot(apiReturn) {
     x: startDate_MN,
     y: claims_MN,
     line: {
-      color: "#17BECF",
+      color: "#6666ff",
     },
   };
 
@@ -958,7 +958,7 @@ function buildPlot(apiReturn) {
     x: startDate_MO,
     y: claims_MO,
     line: {
-      color: "brightyellow",
+      color: "#66ffff",
     },
   };
 
@@ -1046,7 +1046,7 @@ function buildPlot(apiReturn) {
     x: startDate_NC,
     y: claims_NC,
     line: {
-      color: "",
+      color: "#cccc00",
     },
   };
 
@@ -1068,7 +1068,7 @@ function buildPlot(apiReturn) {
     x: startDate_OH,
     y: claims_OH,
     line: {
-      color: "silver",
+      color: "#005580",
     },
   };
 
@@ -1079,7 +1079,7 @@ function buildPlot(apiReturn) {
     x: startDate_OK,
     y: claims_OK,
     line: {
-      color: "red",
+      color: " #e6ff99",
     },
   };
 
@@ -1090,7 +1090,7 @@ function buildPlot(apiReturn) {
     x: startDate_OR,
     y: claims_OR,
     line: {
-      color: "#17BECF",
+      color: "#004d00",
     },
   };
 
@@ -1101,7 +1101,7 @@ function buildPlot(apiReturn) {
     x: startDate_PA,
     y: claims_PA,
     line: {
-      color: "#17BECF",
+      color: "#660000",
     },
   };
 
@@ -1112,7 +1112,7 @@ function buildPlot(apiReturn) {
     x: startDate_RI,
     y: claims_RI,
     line: {
-      color: "#17BECF",
+      color: "#ffd480",
     },
   };
 
@@ -1123,7 +1123,7 @@ function buildPlot(apiReturn) {
     x: startDate_SC,
     y: claims_SC,
     line: {
-      color: "#17BECF",
+      color: "#008080",
     },
   };
 
@@ -1134,7 +1134,7 @@ function buildPlot(apiReturn) {
     x: startDate_SD,
     y: claims_SD,
     line: {
-      color: "#17BECF",
+      color: "#f9ecf2",
     },
   };
 
@@ -1145,7 +1145,7 @@ function buildPlot(apiReturn) {
     x: startDate_TN,
     y: claims_TN,
     line: {
-      color: "#17BECF",
+      color: "#ffad99",
     },
   };
 
@@ -1156,7 +1156,7 @@ function buildPlot(apiReturn) {
     x: startDate_TX,
     y: claims_TX,
     line: {
-      color: "#17BECF",
+      color: "#e68a00",
     },
   };
 
@@ -1167,7 +1167,7 @@ function buildPlot(apiReturn) {
     x: startDate_UT,
     y: claims_UT,
     line: {
-      color: "#17BECF",
+      color: "#4dff4d",
     },
   };
 
@@ -1178,7 +1178,7 @@ function buildPlot(apiReturn) {
     x: startDate_VT,
     y: claims_VT,
     line: {
-      color: "#17BECF",
+      color: "#aaff00",
     },
   };
 
@@ -1189,7 +1189,7 @@ function buildPlot(apiReturn) {
     x: startDate_VA,
     y: claims_VA,
     line: {
-      color: "#17BECF",
+      color: "#1f3d7a",
     },
   };
 
@@ -1200,7 +1200,7 @@ function buildPlot(apiReturn) {
     x: startDate_WA,
     y: claims_WA,
     line: {
-      color: "#17BECF",
+      color: "#001a4d",
     },
   };
 
@@ -1211,7 +1211,7 @@ function buildPlot(apiReturn) {
     x: startDate_WV,
     y: claims_WV,
     line: {
-      color: "#17BECF",
+      color: "#e6ffee",
     },
   };
 
@@ -1222,7 +1222,7 @@ function buildPlot(apiReturn) {
     x: startDate_WI,
     y: claims_WI,
     line: {
-      color: "#17BECF",
+      color: "#cc2900",
     },
   };
 
@@ -1233,7 +1233,7 @@ function buildPlot(apiReturn) {
     x: startDate_WY,
     y: claims_WY,
     line: {
-      color: "#17BECF",
+      color: "#001a00",
     },
   };
   var apiReturn = [
