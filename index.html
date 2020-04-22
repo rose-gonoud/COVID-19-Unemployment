@@ -49,6 +49,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+  <!-- Mobiscroll JS and CSS Includes -->
+  <link rel="stylesheet" href="assets/css/mobiscroll.javascript.min.css">
+  <script src="assets/js/mobiscroll.javascript.min.js"></script>
 </head>
 
 <body>
@@ -56,8 +59,8 @@
   <div class="wrapper"> 
       <nav class="navbar navbar-default">
         <div class="container-fluid">
-          <div class="navbar-header" >
-            <a class="navbar-brand" href="index.html">Home</a>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Project 2</a>
           </div>
         </div>
       </nav>
@@ -108,48 +111,18 @@
                       </div>
                     <div class="panel-body">
                   
-                      <script>
-                        $('.input-daterange input').each(function() {
-                            $(this).datepicker('clearDates');
-                        });
+                  <!-- <script>  
+                      $('.input-daterange input').each(function() {
+                        $(this).datepicker('clearDates');
+                    });
 
-                      </script>
-                      <script>
+                  </script> -->
 
-    mobiscroll.settings = {
-        lang: 'en',                       // Specify language like: lang: 'pl' or omit setting to use default
-        theme: 'ios',                     // Specify theme like: theme: 'ios' or omit setting to use default
-        themeVariant: 'light',            // More info about themeVariant: https://docs.mobiscroll.com/4-10-3/javascript/calendar#opt-themeVariant
-        display: 'bubble'                 // Specify display mode like: display: 'bottom' or omit setting to use default
-    };
-    
-    mobiscroll.calendar('#demo-app-date');
-    
-    mobiscroll.calendar('#demo-app-date-time', {
-        controls: ['calendar', 'time']    // More info about controls: https://docs.mobiscroll.com/4-10-3/javascript/calendar#opt-controls
-    });
-    
-    mobiscroll.calendar('#demo-app-date-non-form');
-    
-    var instance = mobiscroll.calendar('#demo-app-date-external', {
-        showOnTap: false,                 // More info about showOnTap: https://docs.mobiscroll.com/4-10-3/javascript/calendar#opt-showOnTap
-        showOnFocus: false,               // More info about showOnFocus: https://docs.mobiscroll.com/4-10-3/javascript/calendar#opt-showOnFocus
-        controls: ['calendar', 'time'],   // More info about controls: https://docs.mobiscroll.com/4-10-3/javascript/calendar#opt-controls
-        onInit: function (event, inst) {  // More info about onInit: https://docs.mobiscroll.com/4-10-3/javascript/calendar#event-onInit
-            inst.setVal(new Date(), true);
-        }
-    });
-    
-    document
-        .getElementById('show-demo-app-date-external')
-        .addEventListener('click', function () {
-            instance.show();
-        }, false);
-</script>
+
                     <div class="input-group input-daterange">
-                    <input id="startDate" type="text" class="form-control">
+                    <input id="startDate" class="demo-non-form" placeholder="Please Select...">
                       <div class="input-group-addon">to</div>
-                    <input id="endDate" type="text" class="form-control">
+                    <input id="endDate" class="demo-non-form" placeholder="Please Select...">
                     </div>
                   
                     </div>
@@ -236,6 +209,7 @@
     <script type="text/javascript" src="assets/js/logic.js"></script>
     <script type="text/javascript" src="assets/js/plots.js"></script>
     <script type="text/javascript" src="assets/js/populateTable.js"></script>
+    <script type="text/javascript" src="assets/js/date-calendar.js"></script>
 
   </body>
 </html>
