@@ -14,9 +14,13 @@ function populateSummaryStats(data) {
 function calculateStats(data) {
   stats = {};
 
-  stats["State With the Most Continued Claims"] = getStateWithMaxContClaims(data);
+  stats["State With the Most Continued Claims"] = getStateWithMaxContClaims(
+    data
+  );
   stats["Average number of New Claims"] = getAvgNewClaims(data);
   stats[""] = getAvgUnemploymentRate(data);
+
+  maxDate = filterMostRecentWeekData(data);
 
   return stats;
 }
@@ -35,33 +39,57 @@ function getStateWithMaxContClaims(data) {
 }
 
 function getAvgNewClaims(data) {
-    //Get the state with the most open claims within the period.
-    let allInitialClaims = data.map((entry) => {
-      return entry.initial_claims;
-    });
-  
-    // take an elegant sum
-    const total = allInitialClaims.reduce((accumulator, element) => accumulator + element, 0);
-    // calculate an average
-    let avgInitialClaims = total/allInitialClaims.length;
-  
-    return avgInitialClaims;
+  //Get the state with the most open claims within the period.
+  let allInitialClaims = data.map((entry) => {
+    return entry.initial_claims;
+  });
+
+  // take an elegant sum
+  const total = allInitialClaims.reduce(
+    (accumulator, element) => accumulator + element,
+    0
+  );
+  // calculate an average
+  let avgInitialClaims = total / allInitialClaims.length;
+
+  return avgInitialClaims;
 }
 
 function getAvgUnemploymentRate(data) {
-    //Get the state with the most open claims within the period.
-    let unemploymentRate = data.map((entry) => {
-      return entry.insured_unemployment_rate;
-    });
-  
-    // take an elegant sum
-    const total = unemploymentRate.reduce((accumulator, element) => accumulator + element, 0);
-    // calculate an average
-    let avgUnemploymentRate = total/unemploymentRate.length;
-  
-    // let avgContinuedClaimsIndex = allContinuedClaims.indexOf(avgContinuedClaim);
-  
-    return avgUnemploymentRate;
+  //Get the state with the most open claims within the period.
+  let unemploymentRate = data.map((entry) => {
+    return entry.insured_unemployment_rate;
+  });
+
+  // take an elegant sum
+  const total = unemploymentRate.reduce(
+    (accumulator, element) => accumulator + element,
+    0
+  );
+  // calculate an average
+  let avgUnemploymentRate = total / unemploymentRate.length;
+
+  // let avgContinuedClaimsIndex = allContinuedClaims.indexOf(avgContinuedClaim);
+
+  return avgUnemploymentRate;
+}
+
+//Takes in the data set and returns only the elements where week filed is most recont
+function filterMostRecentWeekData(data) {
+  maxDate = moment(data[0].file_week_ended).format("YYYY[-]MM[-]DD");
+
+  data.forEach((entry, i) => {
+    entryDate = moment(entry.file_week_ended).format("YYYY[-]MM[-]DD");
+    if (entryDate > maxDate) {
+      maxDate = entryDate;
+    }
+  });
+
+  filteredSet = data.filter((entry) => {
+    return moment(entry.file_week_ended).format("YYYY[-]MM[-]DD") == maxDate;
+  });
+
+  return filteredSet;
 }
 
 // continued_claims: 22085
