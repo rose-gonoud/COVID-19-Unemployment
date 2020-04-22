@@ -110,9 +110,8 @@ function getStateWithMaxUnempRate(data) {
         if (states[index] != states[index+1]) {
             //When this condition is run we are on the last entry for this state
             //Calculate your average and save it to array
-            console.log(stateSum)
-            console.log(instancesOfState)
-            stateAvgs.push( stateSum / instancesOfState )
+            stateAvgs.push( { state: states[index],
+                avg:  stateSum / instancesOfState })
             // Reset counter vars
             instancesOfState = 0
             stateSum = 0
@@ -121,17 +120,14 @@ function getStateWithMaxUnempRate(data) {
 
     console.log("stateAvgs", stateAvgs)
 
-    var stateUnemploymentDict = {};
-    states.forEach((state, i) => stateUnemploymentDict[state] = stateAvgs[i]);
-    console.log(stateUnemploymentDict);
+    let avgs = stateAvgs.map((entry) => {
+        return entry.avg;
+    });
 
+    let maxUnemploymentRate = Math.max(...avgs)
+    let maxUnemploymentRateIndex = avgs.indexOf(maxUnemploymentRate);
 
-
-  let maxUnemploymentRate = Math.max(...stateAvgs);
-
-  let maxUnemploymentRateIndex = unemploymentRate.indexOf(maxUnemploymentRate);
-
-  return data[maxUnemploymentRateIndex].state;
+    return stateAvgs[maxUnemploymentRateIndex].state;
 }
 
 //Takes in the data set and returns only the elements where week filed is most recent
