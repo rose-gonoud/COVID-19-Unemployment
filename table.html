@@ -82,7 +82,6 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="index.html">Project 2
-              <img class="nav-ufo" src="/images/ufo.svg" alt="">
             </a>
           </div>
         </nav>
@@ -107,7 +106,7 @@
                 <div class="panel-body">
                   <script type="text/javascript">
                     $(document).ready(function() {
-                        $('#selState').multiselect({
+                        $('#selStateTable').multiselect({
                         enableCaseInsensitiveFiltering: true,
                         includeResetOption: true,
                         buttonWidth: '400px',
@@ -115,7 +114,7 @@
                       });
                     });
                   </script>
-                  <select id="selState" multiple="multiple" onchange="optionChanged(this.value)"></select>
+                  <select id="selStateTable" multiple="multiple" onchange="optionChanged(this.value)"></select>
                 </div>
                 <div class="panel-footer" id="pan-pulldown"><h3 id="h-pulldown"></h3></div>
               </div>
@@ -135,9 +134,9 @@
                     });
                   </script>
                     <div class="input-group input-daterange">
-                        <input id="startDate" type="text" class="form-control">
+                        <input id="startDateTable" type="text" class="form-control">
                           <div class="input-group-addon">to</div>
-                        <input id="endDate" type="text" class="form-control">
+                        <input id="endDateTable" type="text" class="form-control">
                     </div>
               
                 </div>
@@ -185,7 +184,7 @@
 
       <!-- FOOTER -->
       <footer class="footer" align="center">
-        <span class="bottom">Project 2 </span>
+        <span class="bottom">Luisa Zini | Rose Gonoud | Nathan Higgs | Christian Thomson </span>
       </footer>
     </div> <!-- wrapper --> 
 
