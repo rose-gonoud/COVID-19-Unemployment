@@ -13,10 +13,28 @@ mobiscroll.calendar('#demo-app-date-time', {
     controls: ['calendar', 'time']    // More info about controls: https://docs.mobiscroll.com/4-10-3/javascript/calendar#opt-controls
 });
 
-mobiscroll.calendar('#startDate');
-mobiscroll.calendar('#endDate');
-mobiscroll.calendar('#startDateTable');
-mobiscroll.calendar('#endDateTable');
+var now = new Date();
+console.log(now);
+mobiscroll.calendar('#startDate', {
+    onInit: function (event, inst) {
+        inst.setVal(now, true);
+    }
+});
+mobiscroll.calendar('#endDate', {
+    onInit: function (event, inst) {
+        inst.setVal(now, true);
+    }
+});
+mobiscroll.calendar('#startDateTable', {
+    onInit: function (event, inst) {
+        inst.setVal(now, true);
+    }
+});
+mobiscroll.calendar('#endDateTable', {
+    onInit: function (event, inst) {
+        inst.setVal(now, true);
+    }
+});
 
 var instance = mobiscroll.calendar('#demo-app-date-external', {
     showOnTap: false,                 // More info about showOnTap: https://docs.mobiscroll.com/4-10-3/javascript/calendar#opt-showOnTap
@@ -27,8 +45,8 @@ var instance = mobiscroll.calendar('#demo-app-date-external', {
     }
 });
 
-document
-    .getElementById('show-demo-app-date-external')
-    .addEventListener('click', function () {
-        instance.show();
-    }, false);
+// document
+//     .getElementById('show-demo-app-date-external')
+//     .addEventListener('click', function () {
+//         instance.show();
+//     }, false);

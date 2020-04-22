@@ -34,7 +34,7 @@ function pullDownMenu() {
 function optionChanged() {
   var selValues = [];
   selValues.push($("#selState").val());
-  d3.select("#h-pulldown").text(selValues);
+  // d3.select("#h-pulldown").text(selValues);
 
   let startDate = d3.select("#startDate").property("value");
   let endDate = d3.select("#endDate").property("value");

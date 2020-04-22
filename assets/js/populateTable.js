@@ -48,6 +48,7 @@ function pullDownMenu() {
   
     let startDate = d3.select("#startDateTable").property("value");
     let endDate = d3.select("#endDateTable").property("value");
+    console.log(startDate);
   
     // Reformat dates with moment.js
     startDate = moment(startDateTable).format("YYYY[-]MM[-]DD");
@@ -67,7 +68,7 @@ function pullDownMenu() {
     d3.json(`${baseURL}${queryString}`, (data) => {
       console.log("api returned", data);
   
-      //Generate a line plot
+      //Generate a populate Table
       buildTable(data);
   
       
