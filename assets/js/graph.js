@@ -1,277 +1,262 @@
-// Submit Button handler
-function handleSubmit() {
-  // Prevent the page from refreshing
-  d3.event.preventDefault();
 
-  // Select the input value from the form
-  var state_abbr = d3.select("#stockInput").node().value;
-  console.log(state_abbr);
-
-  // clear the input value
-  d3.select("#stockInput").node().value = "";
-
-  // Build the plot 
-  buildPlot(state_abbr2);
-}
-
-function buildPlot(apiReturn1) {
+function buildPlot1(apiReturn1) {
   console.log("apiReturn1 in buidPlot");
-  let alabama = [];
+  let alabama1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Alabama") {
-      alabama.push(apiReturn1[i]);
+      alabama1.push(apiReturn1[i]);
     }
   }
-
-  let alaska = [];
+console.log(alabama1);
+  let alaska1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Alaska") {
-      alaska.push(apiReturn1[i]);
+      alaska1.push(apiReturn1[i]);
     }
   }
 
-  let arizona = [];
+  let arizona1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Arizona") {
-      arizona.push(apiReturn1[i]);
+      arizona1.push(apiReturn1[i]);
     }
   }
 
-  let arkansas = [];
+  let arkansas1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Arkansas") {
-      arkansas.push(apiReturn1[i]);
+      arkansas1.push(apiReturn1[i]);
     }
   }
 
-  let california = [];
+  let california1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "California") {
-      california.push(apiReturn1[i]);
+      california1.push(apiReturn1[i]);
     }
   }
 
-  let colorado = [];
+  let colorado1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Colorado") {
-      colorado.push(apiReturn1[i]);
+      colorado1.push(apiReturn1[i]);
     }
   }
 
-  let connecticut = [];
+  let connecticut1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Connecticut") {
-      connecticut.push(apiReturn1[i]);
+      connecticut1.push(apiReturn1[i]);
     }
   }
 
-  let delaware = [];
+  let delaware1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Delaware") {
-      delaware.push(apiReturn1[i]);
+      delaware1.push(apiReturn1[i]);
     }
   }
 
-  let florida = [];
+  let florida1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Florida") {
-      florida.push(apiReturn1[i]);
+      florida1.push(apiReturn1[i]);
     }
   }
 
-  let georgia = [];
+  let georgia1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Georgia") {
-      georgia.push(apiReturn1[i]);
+      georgia1.push(apiReturn1[i]);
     }
   }
 
-  let hawaii = [];
+  let hawaii1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Hawaii") {
-      hawaii.push(apiReturn1[i]);
+      hawaii1.push(apiReturn1[i]);
     }
   }
 
-  let idaho = [];
+  let idaho1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Idaho") {
-      idaho.push(apiReturn1[i]);
+      idaho1.push(apiReturn1[i]);
     }
   }
 
-  let illinois = [];
+  let illinois1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Illinois") {
-      illinois.push(apiReturn1[i]);
+      illinois1.push(apiReturn1[i]);
     }
   }
 
-  let indiana = [];
+  let indiana1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Indiana") {
-      indiana.push(apiReturn1[i]);
+      indiana1.push(apiReturn1[i]);
     }
   }
 
-  let iowa = [];
+  let iowa1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Iowa") {
-      iowa.push(apiReturn1[i]);
+      iowa1.push(apiReturn1[i]);
     }
   }
 
-  let kansas = [];
+  let kansas1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Kansas") {
-      kansas.push(apiReturn1[i]);
+      kansas1.push(apiReturn1[i]);
     }
   }
 
-  let kentucky = [];
+  let kentucky1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Kentucky") {
-      kentucky.push(apiReturn1[i]);
+      kentucky1.push(apiReturn1[i]);
     }
   }
 
-  let louisiana = [];
+  let louisiana1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Louisiana") {
-      louisiana.push(apiReturn1[i]);
+      louisiana1.push(apiReturn1[i]);
     }
   }
 
-  let maine = [];
+  let maine1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Maine") {
-      maine.push(apiReturn1[i]);
+      maine1.push(apiReturn1[i]);
     }
   }
 
-  let maryland = [];
+  let maryland1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Maryland") {
-      maryland.push(apiReturn1[i]);
+      maryland1.push(apiReturn1[i]);
     }
   }
 
-  let massachusetts = [];
+  let massachusetts1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Massachusetts") {
-      massachusetts.push(apiReturn1[i]);
+      massachusetts1.push(apiReturn1[i]);
     }
   }
 
-  let michigan = [];
+  let michigan1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Michigan") {
-      michigan.push(apiReturn1[i]);
+      michigan1.push(apiReturn1[i]);
     }
   }
 
-  let minnesota = [];
+  let minnesota1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
-    if (apiReturn1[i].state === "minnesota") {
-      minnesota.push(apiReturn1[i]);
+    if (apiReturn1[i].state === "minnesota1") {
+      minnesota1.push(apiReturn1[i]);
     }
   }
 
-  let mississippi = [];
+  let mississippi1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Mississippi") {
-      mississippi.push(apiReturn1[i]);
+      mississippi1.push(apiReturn1[i]);
     }
   }
 
-  let missouri = [];
+  let missouri1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Missouri") {
-      missouri.push(apiReturn1[i]);
+      missouri1.push(apiReturn1[i]);
     }
   }
 
-  let montana = [];
+  let montana1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Montana") {
-      montana.push(apiReturn1[i]);
+      montana1.push(apiReturn1[i]);
     }
   }
 
-  let nebraska = [];
+  let nebraska1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Nebraska") {
-      nebraska.push(apiReturn1[i]);
+      nebraska1.push(apiReturn1[i]);
     }
   }
 
-  let nevada = [];
+  let nevada1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Nevada") {
-      nevada.push(apiReturn1[i]);
+      nevada1.push(apiReturn1[i]);
     }
   }
 
-  let new_hampshire = [];
+  let new_hampshire1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "New Hampshire") {
-      new_hampshire.push(apiReturn1[i]);
+      new_hampshire1.push(apiReturn1[i]);
     }
   }
 
-  let new_jersey = [];
+  let new_jersey1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "New Jersey") {
-      new_jersey.push(apiReturn1[i]);
+      new_jersey1.push(apiReturn1[i]);
     }
   }
 
-  let new_mexico = [];
+  let new_mexico1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "New Mexico") {
-      new_mexico.push(apiReturn1[i]);
+      new_mexico1.push(apiReturn1[i]);
     }
   }
 
-  let new_york = [];
+  let new_york1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "New York") {
-      new_york.push(apiReturn1[i]);
+      new_york1.push(apiReturn1[i]);
     }
   }
 
-  let north_carolina = [];
+  let north_carolina1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "North Carolina") {
-      north_carolina.push(apiReturn1[i]);
+      north_carolina1.push(apiReturn1[i]);
     }
   }
 
-  let north_dakota = [];
+  let north_dakota1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "North Dakota") {
-      north_dakota.push(apiReturn1[i]);
+      north_dakota1.push(apiReturn1[i]);
     }
   }
 
-  let ohio = [];
+  let ohio1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Ohio") {
-      ohio.push(apiReturn1[i]);
+      ohio1.push(apiReturn1[i]);
     }
   }
 
-  let oklahoma = [];
+  let oklahoma1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Oklahoma") {
-      oklahoma.push(apiReturn1[i]);
+      oklahoma1.push(apiReturn1[i]);
     }
   }
 
-  let oregon = [];
+  let oregon1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Oregon") {
-      oregon.push(apiReturn1[i]);
+      oregon1.push(apiReturn1[i]);
     }
   }
 
@@ -282,87 +267,87 @@ function buildPlot(apiReturn1) {
     }
   }
 
-  let rhode_island = [];
+  let rhode_island1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Rhode Island") {
-      rhode_island.push(apiReturn1[i]);
+      rhode_island1.push(apiReturn1[i]);
     }
   }
 
-  let south_carolina = [];
+  let south_carolina1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "South Carolina") {
-      south_carolina.push(apiReturn1[i]);
+      south_carolina1.push(apiReturn1[i]);
     }
   }
 
-  let south_dakota = [];
+  let south_dakota1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "South Dakota") {
-      south_dakota.push(apiReturn1[i]);
+      south_dakota1.push(apiReturn1[i]);
     }
   }
 
-  let tennessee = [];
+  let tennessee1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Tennessee") {
-      tennessee.push(apiReturn1[i]);
+      tennessee1.push(apiReturn1[i]);
     }
   }
 
-  let texas = [];
+  let texas1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Texas") {
-      texas.push(apiReturn1[i]);
+      texas1.push(apiReturn1[i]);
     }
   }
 
-  let utah = [];
+  let utah1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Utah") {
-      utah.push(apiReturn1[i]);
+      utah1.push(apiReturn1[i]);
     }
   }
 
-  let vermont = [];
+  let vermont1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Vermont") {
-      vermont.push(apiReturn1[i]);
+      vermont1.push(apiReturn1[i]);
     }
   }
 
-  let virginia = [];
+  let virginia1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Virginia") {
-      virginia.push(apiReturn1[i]);
+      virginia1.push(apiReturn1[i]);
     }
   }
 
-  let washington = [];
+  let washington1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Washington") {
-      washington.push(apiReturn1[i]);
+      washington1.push(apiReturn1[i]);
     }
   }
 
-  let west_virginia = [];
+  let west_virginia1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "West Virginia") {
-      west_virginia.push(apiReturn1[i]);
+      west_virginia1.push(apiReturn1[i]);
     }
   }
 
-  let wisconsin = [];
+  let wisconsin1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
     if (apiReturn1[i].state === "Wisconsin") {
-      wisconsin.push(apiReturn1[i]);
+      wisconsin1.push(apiReturn1[i]);
     }
   }
 
-  let wyoming = [];
+  let wyoming1 = [];
   for (let i = 0; i < apiReturn1.length; i++) {
-    if (apiReturn1[i].state === "wyoming") {
-      wyoming.push(apiReturn1[i]);
+    if (apiReturn1[i].state === "Wyoming1") {
+      wyoming1.push(apiReturn1[i]);
     }
   }
 
@@ -378,308 +363,308 @@ function buildPlot(apiReturn1) {
   var claims = apiReturn1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_AL = alabama.map(function (state) {
+  var rate_AL1 = alabama1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_AK = alaska.map(function (state) {
+  var rate_AK1 = alaska1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_AZ = arizona.map(function (state) {
+  var rate_AZ1 = arizona1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_AR = arkansas.map(function (state) {
+  var rate_AR1 = arkansas1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_CA = california.map(function (state) {
+  var rate_CA1 = california1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_CO = colorado.map(function (state) {
+  var rate_CO1 = colorado1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_CT = connecticut.map(function (state) {
+  var rate_CT1 = connecticut1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_DE = delaware.map(function (state) {
+  var rate_DE1 = delaware1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_FL = florida.map(function (state) {
+  var rate_FL1 = florida1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_GA = georgia.map(function (state) {
+  var rate_GA1 = georgia1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_HI = hawaii.map(function (state) {
+  var rate_HI1 = hawaii1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_ID = idaho.map(function (state) {
+  var rate_ID1 = idaho1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_IL = illinois.map(function (state) {
+  var rate_IL1 = illinois1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_IN = indiana.map(function (state) {
+  var rate_IN1 = indiana1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_IA = iowa.map(function (state) {
+  var rate_IA1 = iowa1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_KS = kansas.map(function (state) {
+  var rate_KS1 = kansas1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_KY = kentucky.map(function (state) {
+  var rate_KY1 = kentucky1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_LA = louisiana.map(function (state) {
+  var rate_LA1 = louisiana1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_MA = maine.map(function (state) {
+  var rate_MA1 = maine1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_MD = maryland.map(function (state) {
+  var rate_MD1 = maryland1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_ME = massachusetts.map(function (state) {
+  var rate_ME1 = massachusetts1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_MI = michigan.map(function (state) {
+  var rate_MI1 = michigan1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_MN = minnesota.map(function (state) {
+  var rate_MN1 = minnesota1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_MS = mississippi.map(function (state) {
+  var rate_MS1 = mississippi1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_MO = missouri.map(function (state) {
+  var rate_MO1 = missouri1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_MT = montana.map(function (state) {
+  var rate_MT1 = montana1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_NE = nebraska.map(function (state) {
+  var rate_NE1 = nebraska1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_NV = nevada.map(function (state) {
+  var rate_NV1 = nevada1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_NH = new_hampshire.map(function (state) {
+  var rate_NH1 = new_hampshire1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_NJ = new_jersey.map(function (state) {
+  var rate_NJ1 = new_jersey1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_NM = new_mexico.map(function (state) {
+  var rate_NM1 = new_mexico1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_NY = new_york.map(function (state) {
+  var rate_NY1 = new_york1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_NC = north_carolina.map(function (state) {
+  var rate_NC1 = north_carolina1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_ND = north_dakota.map(function (state) {
+  var rate_ND1 = north_dakota1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_OH = ohio.map(function (state) {
+  var rate_OH1 = ohio1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_OK = oklahoma.map(function (state) {
+  var rate_OK1 = oklahoma1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_OR = oregon.map(function (state) {
+  var rate_OR1 = oregon1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_PA = oregon.map(function (state) {
+  var rate_PA1 = oregon1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_RI = rhode_island.map(function (state) {
+  var rate_RI1 = rhode_island1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_SC = south_carolina.map(function (state) {
+  var rate_SC1 = south_carolina1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_SD = south_dakota.map(function (state) {
+  var rate_SD1 = south_dakota1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_TN = tennessee.map(function (state) {
+  var rate_TN1 = tennessee1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_TX = texas.map(function (state) {
+  var rate_TX1 = texas1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_UT = utah.map(function (state) {
+  var rate_UT1 = utah1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_VT = vermont.map(function (state) {
+  var rate_VT1 = vermont1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_VA = virginia.map(function (state) {
+  var rate_VA1 = virginia1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_WA = washington.map(function (state) {
+  var rate_WA1 = washington1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_WV = west_virginia.map(function (state) {
+  var rate_WV1 = west_virginia1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_WI = wisconsin.map(function (state) {
+  var rate_WI1 = wisconsin1.map(function (state) {
     return state.insured_unemployment_rate;
   });
-  var rate_WY = wyoming.map(function (state) {
+  var rate_WY1 = wyoming1.map(function (state) {
     return state.insured_unemployment_rate;
   });
   // Start date for each state
   var startDate = apiReturn1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_AL = alabama.map(function (state) {
+  var startDate_AL1 = alabama1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_AK = alaska.map(function (state) {
+  var startDate_AK1 = alaska1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_AZ = arizona.map(function (state) {
+  var startDate_AZ1 = arizona1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_AR = arkansas.map(function (state) {
+  var startDate_AR1 = arkansas1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_CA = california.map(function (state) {
+  var startDate_CA1 = california1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_CO = colorado.map(function (state) {
+  var startDate_CO1 = colorado1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_CT = connecticut.map(function (state) {
+  var startDate_CT1 = connecticut1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_DE = delaware.map(function (state) {
+  var startDate_DE1 = delaware1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_FL = florida.map(function (state) {
+  var startDate_FL1 = florida1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_GA = georgia.map(function (state) {
+  var startDate_GA1 = georgia1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_HI = hawaii.map(function (state) {
+  var startDate_HI1 = hawaii1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_ID = idaho.map(function (state) {
+  var startDate_ID1 = idaho1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_IL = illinois.map(function (state) {
+  var startDate_IL1 = illinois1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_IN = indiana.map(function (state) {
+  var startDate_IN1 = indiana1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_IA = iowa.map(function (state) {
+  var startDate_IA1 = iowa1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_KS = kansas.map(function (state) {
+  var startDate_KS1 = kansas1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_KY = kentucky.map(function (state) {
+  var startDate_KY1 = kentucky1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_LA = louisiana.map(function (state) {
+  var startDate_LA1 = louisiana1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_MA = maine.map(function (state) {
+  var startDate_MA1 = maine1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_MD = maryland.map(function (state) {
+  var startDate_MD1 = maryland1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_ME = massachusetts.map(function (state) {
+  var startDate_ME1 = massachusetts1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_MI = michigan.map(function (state) {
+  var startDate_MI1 = michigan1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_MN = minnesota.map(function (state) {
+  var startDate_MN1 = minnesota1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_MS = mississippi.map(function (state) {
+  var startDate_MS1 = mississippi1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_MO = missouri.map(function (state) {
+  var startDate_MO1 = missouri1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_MT = montana.map(function (state) {
+  var startDate_MT1 = montana1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_NE = nebraska.map(function (state) {
+  var startDate_NE1 = nebraska1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_NV = nevada.map(function (state) {
+  var startDate_NV1 = nevada1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_NH = new_hampshire.map(function (state) {
+  var startDate_NH1 = new_hampshire1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_NJ = new_jersey.map(function (state) {
+  var startDate_NJ1 = new_jersey1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_NM = new_mexico.map(function (state) {
+  var startDate_NM1 = new_mexico1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_NY = new_york.map(function (state) {
+  var startDate_NY1 = new_york1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_NC = north_carolina.map(function (state) {
+  var startDate_NC1 = north_carolina1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_ND = north_dakota.map(function (state) {
+  var startDate_ND1 = north_dakota1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_OH = ohio.map(function (state) {
+  var startDate_OH1 = ohio1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_OK = oklahoma.map(function (state) {
+  var startDate_OK1 = oklahoma1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_OR = oregon.map(function (state) {
+  var startDate_OR1 = oregon1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_PA = oregon.map(function (state) {
+  var startDate_PA1 = oregon1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_RI = rhode_island.map(function (state) {
+  var startDate_RI1 = rhode_island1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_SC = south_carolina.map(function (state) {
+  var startDate_SC1 = south_carolina1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_SD = south_dakota.map(function (state) {
+  var startDate_SD1 = south_dakota1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_TN = tennessee.map(function (state) {
+  var startDate_TN1 = tennessee1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_TX = texas.map(function (state) {
+  var startDate_TX1 = texas1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_UT = utah.map(function (state) {
+  var startDate_UT1 = utah1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_VT = vermont.map(function (state) {
+  var startDate_VT1 = vermont1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_VA = virginia.map(function (state) {
+  var startDate_VA1 = virginia1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_WA = washington.map(function (state) {
+  var startDate_WA1 = washington1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_WV = west_virginia.map(function (state) {
+  var startDate_WV1 = west_virginia1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_WI = wisconsin.map(function (state) {
+  var startDate_WI1 = wisconsin1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
-  var startDate_WY = wyoming.map(function (state) {
+  var startDate_WY1 = wyoming1.map(function (state) {
     return state.file_week_ended.slice(4,16);
   });
 
@@ -687,623 +672,621 @@ function buildPlot(apiReturn1) {
   //   return state.file_week_ended.slice(4,16);
   // });
 
-  var Alabama = {
+  var Alabama1 = {
     type: "scatter",
     mode: "lines",
     name: "Alabama",
-    x: startDate_AL,
-    y: rate_AL,
+    x: startDate_AL1,
+    y: rate_AL1,
     line: {
       color: "red",
     },
   };
 
-  var Alaska = {
+  var Alaska1 = {
     type: "scatter",
     mode: "lines",
     name: "Alaska",
-    x: startDate_AK,
-    y: rate_AK,
+    x: startDate_AK1,
+    y: rate_AK1,
     line: {
       color: "green",
     },
   };
 
-  var Arizona = {
+  var Arizona1 = {
     type: "scatter",
     mode: "lines",
     name: "Arizona",
-    x: startDate_AZ,
-    y: rate_AZ,
+    x: startDate_AZ1,
+    y: rate_AZ1,
     line: {
       color: "blue",
     },
   };
 
-  var Arkansas = {
+  var Arkansas1 = {
     type: "scatter",
     mode: "lines",
     name: "Arkansas",
-    x: startDate_AR,
-    y: rate_AR,
+    x: startDate_AR1,
+    y: rate_AR1,
     line: {
       color: "#ff9966",
     },
   };
 
-  var California = {
+  var California1 = {
     type: "scatter",
     mode: "lines",
     name: "California",
-    x: startDate_CA,
-    y: rate_CA,
+    x: startDate_CA1,
+    y: rate_CA1,
     line: {
       color: "lightgreen",
     },
   };
 
-  var Colorado = {
+  var Colorado1 = {
     type: "scatter",
     mode: "lines",
     name: "Colorado",
-    x: startDate_CO,
-    y: rate_CO,
+    x: startDate_CO1,
+    y: rate_CO1,
     line: {
       color: "brown",
     },
   };
 
-  var Connecticut = {
+  var Connecticut1 = {
     type: "scatter",
     mode: "lines",
     name: "Connecticut",
-    x: startDate_CT,
-    y: rate_CT,
+    x: startDate_CT1,
+    y: rate_CT1,
     line: {
       color: "grey",
     },
   };
 
-  var Delaware = {
+  var Delaware1 = {
     type: "scatter",
     mode: "lines",
     name: "Delaware",
-    x: startDate_DE,
-    y: rate_DE,
+    x: startDate_DE1,
+    y: rate_DE1,
     line: {
       color: "#lightblue",
     },
   };
 
-  var Florida = {
+  var Florida1 = {
     type: "scatter",
     mode: "lines",
     name: "Florida",
-    x: startDate_FL,
-    y: rate_FL,
+    x: startDate_FL1,
+    y: rate_FL1,
     line: {
       color: "orange",
     },
   };
 
-  var Georgia = {
+  var Georgia1 = {
     type: "scatter",
     mode: "lines",
     name: "Georgia",
-    x: startDate_GA,
-    y: rate_GA,
+    x: startDate_GA1,
+    y: rate_GA1,
     line: {
       color: "#lightred",
     },
   };
 
-  var Hawaii = {
+  var Hawaii1 = {
     type: "scatter",
     mode: "lines",
     name: "Hawaii",
-    x: startDate_HI,
-    y: rate_HI,
+    x: startDate_HI1,
+    y: rate_HI1,
     line: {
       color: "darkgreen",
     },
   };
 
-  var Idaho = {
+  var Idaho1 = {
     type: "scatter",
     mode: "lines",
     name: "Idaho",
-    x: startDate_ID,
-    y: rate_ID,
+    x: startDate_ID1,
+    y: rate_ID1,
     line: {
       color: "darkyellow",
     },
   };
 
-  var Illinois = {
+  var Illinois1 = {
     type: "scatter",
     mode: "lines",
     name: "Illinois",
-    x: startDate_IL,
-    y: rate_IL,
+    x: startDate_IL1,
+    y: rate_IL1,
     line: {
       color: "lightorange",
     },
   };
 
-  var Indiana = {
+  var Indiana1 = {
     type: "scatter",
     mode: "lines",
     name: "Indiana",
-    x: startDate_IN,
-    y: rate_IN,
+    x: startDate_IN1,
+    y: rate_IN1,
     line: {
       color: "darkred",
     },
   };
 
-  var Iowa = {
+  var Iowa1 = {
     type: "scatter",
     mode: "lines",
     name: "Iowa",
-    x: startDate_IA,
-    y: rate_IA,
+    x: startDate_IA1,
+    y: rate_IA1,
     line: {
       color: "lightyellow",
     },
   };
 
-  var Kansas = {
+  var Kansas1 = {
     type: "scatter",
     mode: "lines",
     name: "Kansas",
-    x: startDate_KS,
-    y: rate_KS,
+    x: startDate_KS1,
+    y: rate_KS1,
     line: {
       color: "#darkblue",
     },
   };
 
-  var Kentucky = {
+  var Kentucky1 = {
     type: "scatter",
     mode: "lines",
     name: "Kentucky",
-    x: startDate_KY,
-    y: rate_KY,
+    x: startDate_KY1,
+    y: rate_KY1,
     line: {
       color: "#99ff99",
     },
   };
 
-  var Louisiana = {
+  var Louisiana1 = {
     type: "scatter",
     mode: "lines",
     name: "Louisiana",
-    x: startDate_LA,
-    y: rate_LA,
+    x: startDate_LA1,
+    y: rate_LA1,
     line: {
       color: "purple",
     },
   };
 
-  var Maine = {
+  var Maine1 = {
     type: "scatter",
     mode: "lines",
     name: "Maine",
-    x: startDate_MA,
-    y: rate_MA,
+    x: startDate_MA1,
+    y: rate_MA1,
     line: {
       color: "lightpurple",
     },
   };
 
-  var Maryland = {
+  var Maryland1 = {
     type: "scatter",
     mode: "lines",
     name: "Maryland",
-    x: startDate_MD,
-    y: rate_MD,
+    x: startDate_MD1,
+    y: rate_MD1,
     line: {
       color: "lightorange",
     },
   };
 
-  var Massachusetts = {
+  var Massachusetts1 = {
     type: "scatter",
     mode: "lines",
     name: "Massachusetts",
-    x: startDate_ME,
-    y: rate_ME,
+    x: startDate_ME1,
+    y: rate_ME1,
     line: {
       color: "black",
     },
   };
 
-  var Michigan = {
+  var Michigan1 = {
     type: "scatter",
     mode: "lines",
     name: "Michigan",
-    x: startDate_MI,
-    y: rate_MI,
+    x: startDate_MI1,
+    y: rate_MI1,
     line: {
       color: "lightgrey",
     },
   };
 
-  var Minnesota = {
+  var Minnesota1 = {
     type: "scatter",
     mode: "lines",
     name: "Minnesota",
-    x: startDate_MN,
-    y: rate_MN,
+    x: startDate_MN1,
+    y: rate_MN1,
     line: {
       color: "#6666ff",
     },
   };
 
-  var Mississippi = {
+  var Mississippi1 = {
     type: "scatter",
     mode: "lines",
     name: "Mississippi",
-    x: startDate_MS,
-    y: rate_MS,
+    x: startDate_MS1,
+    y: rate_MS1,
     line: {
       color: "lightbrown",
     },
   };
 
-  var Missouri = {
+  var Missouri1 = {
     type: "scatter",
     mode: "lines",
     name: "Missouri",
-    x: startDate_MO,
-    y: rate_MO,
+    x: startDate_MO1,
+    y: rate_MO1,
     line: {
       color: "#66ffff",
     },
   };
 
-  var Montana = {
+  var Montana1 = {
     type: "scatter",
     mode: "lines",
     name: "Montana",
-    x: startDate_MT,
-    y: rate_MT,
+    x: startDate_MT1,
+    y: rate_MT1,
     line: {
       color: "gold",
     },
   };
 
-  var Nebraska = {
+  var Nebraska1 = {
     type: "scatter",
     mode: "lines",
     name: "Nebraska",
-    x: startDate_NE,
-    y: rate_NE,
+    x: startDate_NE1,
+    y: rate_NE1,
     line: {
       color: "silver",
     },
   };
 
-  var Nevada = {
+  var Nevada1 = {
     type: "scatter",
     mode: "lines",
     name: "Nevada",
-    x: startDate_NV,
-    y: rate_NV,
+    x: startDate_NV1,
+    y: rate_NV1,
     line: {
       color: "maroon",
     },
   };
 
-  var New_Hampshire = {
+  var New_Hampshire1 = {
     type: "scatter",
     mode: "lines",
     name: "New Hampshire",
-    x: startDate_NH,
-    y: rate_NH,
+    x: startDate_NH1,
+    y: rate_NH1,
     line: {
       color: "darkgreen",
     },
   };
 
-  var New_Jersey = {
+  var New_Jersey1 = {
     type: "scatter",
     mode: "lines",
     name: "New Jersey",
-    x: startDate_NJ,
-    y: rate_NJ,
+    x: startDate_NJ1,
+    y: rate_NJ1,
     line: {
       color: "pink",
     },
   };
 
-  var New_Mexico = {
+  var New_Mexico1 = {
     type: "scatter",
     mode: "lines",
     name: "New Mexico",
-    x: startDate_NM,
-    y: rate_NM,
+    x: startDate_NM1,
+    y: rate_NM1,
     line: {
       color: "#lightpink",
     },
   };
 
-  var New_York = {
+  var New_York1 = {
     type: "scatter",
     mode: "lines",
     name: "New York",
-    x: startDate_NY,
-    y: rate_NY,
+    x: startDate_NY1,
+    y: rate_NY1,
     line: {
       color: "#darkpink",
     },
   };
 
-  var North_Carolina = {
+  var North_Carolina1 = {
     type: "scatter",
     mode: "lines",
     name: "North Carolina",
-    x: startDate_NC,
-    y: rate_NC,
+    x: startDate_NC1,
+    y: rate_NC1,
     line: {
       color: "#cccc00",
     },
   };
 
-  var North_Dakota = {
+  var North_Dakota1 = {
     type: "scatter",
     mode: "lines",
     name: "North Dakota",
-    x: startDate_ND,
-    y: rate_ND,
+    x: startDate_ND1,
+    y: rate_ND1,
     line: {
       color: "lightpurple",
     },
   };
 
-  var Ohio = {
+  var Ohio1 = {
     type: "scatter",
     mode: "lines",
     name: "Ohio",
-    x: startDate_OH,
-    y: rate_OH,
+    x: startDate_OH1,
+    y: rate_OH1,
     line: {
       color: "#005580",
     },
   };
 
-  var Oklahoma = {
+  var Oklahoma1 = {
     type: "scatter",
     mode: "lines",
     name: "Oklahoma",
-    x: startDate_OK,
-    y: rate_OK,
+    x: startDate_OK1,
+    y: rate_OK1,
     line: {
       color: " #e6ff99",
     },
   };
 
-  var Oregon = {
+  var Oregon1 = {
     type: "scatter",
     mode: "lines",
     name: "Oregon",
-    x: startDate_OR,
-    y: rate_OR,
+    x: startDate_OR1,
+    y: rate_OR1,
     line: {
       color: "#004d00",
     },
   };
 
-  var Pennsylvania = {
+  var Pennsylvania1 = {
     type: "scatter",
     mode: "lines",
     name: "Pennsylvania",
-    x: startDate_PA,
-    y: rate_PA,
+    x: startDate_PA1,
+    y: rate_PA1,
     line: {
       color: "#660000",
     },
   };
 
-  var Rhode_Island = {
+  var Rhode_Island1 = {
     type: "scatter",
     mode: "lines",
     name: "Rhode Island",
-    x: startDate_RI,
-    y: rate_RI,
+    x: startDate_RI1,
+    y: rate_RI1,
     line: {
       color: "#ffd480",
     },
   };
 
-  var South_Carolina = {
+  var South_Carolina1 = {
     type: "scatter",
     mode: "lines",
     name: "South Carolina",
-    x: startDate_SC,
-    y: rate_SC,
+    x: startDate_SC1,
+    y: rate_SC1,
     line: {
       color: "#008080",
     },
   };
 
-  var South_Dakota = {
+  var South_Dakota1 = {
     type: "scatter",
     mode: "lines",
     name: "South Dakota",
-    x: startDate_SD,
-    y: rate_SD,
+    x: startDate_SD1,
+    y: rate_SD1,
     line: {
       color: "#f9ecf2",
     },
   };
 
-  var Tennessee = {
+  var Tennessee1 = {
     type: "scatter",
     mode: "lines",
     name: "Tennessee",
-    x: startDate_TN,
-    y: rate_TN,
+    x: startDate_TN1,
+    y: rate_TN1,
     line: {
       color: "#ffad99",
     },
   };
 
-  var Texas = {
+  var Texas1 = {
     type: "scatter",
     mode: "lines",
     name: "Texas",
-    x: startDate_TX,
-    y: rate_TX,
+    x: startDate_TX1,
+    y: rate_TX1,
     line: {
       color: "#e68a00",
     },
   };
 
-  var Utah = {
+  var Utah1 = {
     type: "scatter",
     mode: "lines",
     name: "Utah",
-    x: startDate_UT,
-    y: rate_UT,
+    x: startDate_UT1,
+    y: rate_UT1,
     line: {
       color: "#4dff4d",
     },
   };
 
-  var Vermont = {
+  var Vermont1 = {
     type: "scatter",
     mode: "lines",
     name: "Vermont",
-    x: startDate_VT,
-    y: rate_VT,
+    x: startDate_VT1,
+    y: rate_VT1,
     line: {
       color: "#aaff00",
     },
   };
 
-  var Virginia = {
+  var Virginia1 = {
     type: "scatter",
     mode: "lines",
     name: "Virginia",
-    x: startDate_VA,
-    y: rate_VA,
+    x: startDate_VA1,
+    y: rate_VA1,
     line: {
       color: "#1f3d7a",
     },
   };
 
-  var Washington = {
+  var Washington1 = {
     type: "scatter",
     mode: "lines",
     name: "Washington",
-    x: startDate_WA,
-    y: rate_WA,
+    x: startDate_WA1,
+    y: rate_WA1,
     line: {
       color: "#001a4d",
     },
   };
 
-  var West_Virginia = {
+  var West_Virginia1 = {
     type: "scatter",
     mode: "lines",
     name: "West Virginia",
-    x: startDate_WV,
-    y: rate_WV,
+    x: startDate_WV1,
+    y: rate_WV1,
     line: {
       color: "#e6ffee",
     },
   };
 
-  var Wisconsin = {
+  var Wisconsin1 = {
     type: "scatter",
     mode: "lines",
     name: "Wisconsin",
-    x: startDate_WI,
-    y: rate_WI,
+    x: startDate_WI1,
+    y: rate_WI1,
     line: {
       color: "#cc2900",
     },
   };
 
-  var Wyoming = {
+  var Wyoming1 = {
     type: "scatter",
     mode: "lines",
     name: "Wyoming",
-    x: startDate_WY,
-    y: rate_WY,
+    x: startDate_WY1,
+    y: rate_WY1,
     line: {
       color: "#001a00",
     },
   };
   var apiReturn1 = [
-    Alabama,
-    Alaska,
-    Arizona,
-    Arkansas,
-    California,
-    Colorado,
-    Connecticut,
-    Delaware,
-    Florida,
-    Georgia,
-    Hawaii,
-    Idaho,
-    Illinois,
-    Indiana,
-    Iowa,
-    Kansas,
-    Kentucky,
-    Louisiana,
-    Maine,
-    Maryland,
-    Massachusetts,
-    Michigan,
-    Minnesota,
-    Mississippi,
-    Missouri,
-    Montana,
-    Nebraska,
-    Nevada,
-    New_Hampshire,
-    New_Jersey,
-    New_Mexico,
-    New_York,
-    North_Carolina,
-    North_Dakota,
-    Ohio,
-    Oklahoma,
-    Oregon,
-    Pennsylvania,
-    Rhode_Island,
-    South_Carolina,
-    South_Dakota,
-    Tennessee,
-    Texas,
-    Utah,
-    Vermont,
-    Virginia,
-    Washington,
-    West_Virginia,
-    Wisconsin,
-    Wyoming,
+    Alabama1,
+    Alaska1,
+    Arizona1,
+    Arkansas1,
+    California1,
+    Colorado1,
+    Connecticut1,
+    Delaware1,
+    Florida1,
+    Georgia1,
+    Hawaii1,
+    Idaho1,
+    Illinois1,
+    Indiana1,
+    Iowa1,
+    Kansas1,
+    Kentucky1,
+    Louisiana1,
+    Maine1,
+    Maryland1,
+    Massachusetts1,
+    Michigan1,
+    Minnesota1,
+    Mississippi1,
+    Missouri1,
+    Montana1,
+    Nebraska1,
+    Nevada1,
+    New_Hampshire1,
+    New_Jersey1,
+    New_Mexico1,
+    New_York1,
+    North_Carolina1,
+    North_Dakota1,
+    Ohio1,
+    Oklahoma1,
+    Oregon1,
+    Pennsylvania1,
+    Rhode_Island1,
+    South_Carolina1,
+    South_Dakota1,
+    Tennessee1,
+    Texas1,
+    Utah1,
+    Vermont1,
+    Virginia1,
+    Washington1,
+    West_Virginia1,
+    Wisconsin1,
+    Wyoming1,
   ];
 
   var layout1 = {
     title: `Insured Unemployment Rate`,
-    xaxis: {
+    xaxis1: {
       range: [startDate],
       title: "Date",
     },
-    yaxis: {
+    yaxis1: {
       autorange: true,
       type: "linear",
       title: "Unemployent Rate ",
     },
   };
 
-  Plotly.newPlot((id = "plot1"), apiReturn1, layout1);
+  Plotly.newPlot((id = "graph"), apiReturn1, layout1);
 }
 
-// Add event listener for submit button
-d3.select("#submit").on("click", handleSubmit);

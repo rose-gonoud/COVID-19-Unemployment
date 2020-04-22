@@ -59,6 +59,8 @@ function optionChanged() {
 
     //Generate a line plot
     buildPlot(data);
+    buildPlot1(data);
+    
 
     //Put a new chloropleth on the map
     buildChloropleth(data);

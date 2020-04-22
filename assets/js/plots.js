@@ -7,7 +7,7 @@ function buildPlot(apiReturn) {
       alabama.push(apiReturn[i]);
     }
   }
-
+console.log(alabama);
   let alaska = [];
   for (let i = 0; i < apiReturn.length; i++) {
     if (apiReturn[i].state === "Alaska") {
@@ -1289,4 +1289,3 @@ function buildPlot(apiReturn) {
 
   Plotly.newPlot((id = "plot"), apiReturn, layout);
 }
-
