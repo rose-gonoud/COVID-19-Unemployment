@@ -2,9 +2,12 @@
 d3.select("#startDate").property("value", "2019-01-01");
 d3.select("#endDate").property("value", moment().format("YYYY[-]MM[-]DD"));
 
+// Bind the optionChanged method to the input fields
+d3.select("#startDate").on("change", optionChanged);
+d3.select("#startDate").on("change", optionChanged);
+
 //Initial API call on page load
 optionChanged();
-
 pullDownMenu();
 
 /**
@@ -26,9 +29,8 @@ function pullDownMenu() {
 }
 
 /**
- * When the select dropdown is changed this function will fire
+ * When the select dropdown or one of the date filters is changed this function will fire
  */
-
 function optionChanged() {
   var selValues = [];
   selValues.push($("#selState").val());
@@ -53,9 +55,12 @@ function optionChanged() {
 
   // Call out the the API with values from the filter fields
   d3.json(`${baseURL}${queryString}`, (data) => {
-    apiReturn = data;
-    console.log("api returned", apiReturn);
+    console.log("api returned", data);
+
+    //Generate a line plot
     buildPlot(data);
+
+    //Put a new chloropleth on the map
     buildChloropleth(data);
     populateSummaryStats(data);
   });
