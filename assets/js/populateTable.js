@@ -41,7 +41,7 @@ function pullDownMenu() {
     });
   }
 
-  function optionChanged() {
+  function optionChanged1() {
     var selValues = [];
     selValues.push($("#selStateTable").val());
     // d3.select("#h-pulldown").text(selValues);
