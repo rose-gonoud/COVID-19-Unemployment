@@ -40,16 +40,16 @@ We are officially live at https://unemployment-during-covid19.herokuapp.com/
 - [ ] Create a dashboard layout that visualizes the unemployment data in whatever ways seem good.
   - [x] Create a mock-up of the main dashboard.
   - [x] Create Index.js with places for each chart that we want
-  - [ ] Create start date and end date selectors in the HTML (Two tick slider maybe?)
+  - [x] Create start date and end date selectors in the HTML (Two tick slider maybe?)
   - [x] Create state selector in HTML (consider a multiselect field)
   - [x] Display statistics section (max applications in range, min applications in range)
   - [ ] Doubling Rate?
-  - [ ] "Data" page with filters that shows table of visualized data
+  - [x] "Data" page with filters that shows table of visualized data
 
 #### Nathan
 
 - [x] Work on creating a map visualization that can change the color value of each state according to a numeric value
-- [ ] Line Chart (does this now handle the multi-select properly?)
+- [x] Line Chart
 
 #### Jesse
 
@@ -60,7 +60,7 @@ We are officially live at https://unemployment-during-covid19.herokuapp.com/
 
 #### Unassigned
 
-- [ ] Use onChange listeners in D3 to send out queries to Rose's API based on the values of those filters using the d3.json() function
-- [ ] Page CSS
+- [x] Use onChange listeners in D3 to send out queries to Rose's API based on the values of those filters using the d3.json() function
+- [x] Page CSS
 - [ ] "Sources" page that reveals all sources of information
 - [ ] "About" page that credits the creators
