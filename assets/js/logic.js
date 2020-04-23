@@ -132,7 +132,10 @@ function zipAPIDataToGeoJSON(geoData, apiReturn) {
 }
 
 function buildChloropleth(apiReturn) {
-  geojson && geojson.remove();
+  if (geojson) {
+    console.log("removing old geojson");
+    geojson.remove();
+  }
 
   // Load in geojson data
   var geoDataPath = "assets/data/US.geojson";

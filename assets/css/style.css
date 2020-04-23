@@ -305,7 +305,7 @@ select {
   width: 90%;
 }
 
-#graph{
+#graph {
   height: auto;
   min-height: 800px;
   width: 90%;
@@ -317,4 +317,13 @@ select {
 
 .well {
   border-radius: 8px;
+}
+
+.tableDatum {
+  font-size: 14pt;
+  text-align: center;
+}
+
+.table-head {
+  font-size: 14pt;
 }
