@@ -65,10 +65,6 @@ def unemploymentData():
         max_end_date = session.query(func.max(unemployment.file_week_ended))
         end_date = max_end_date
 
-    # these operators (<, >, etc) not supported between queries - how might I print custom message for incorrect ranges?
-    # if (start_date <= end_date):
-    #     return "That is not a possible date range: please make sure your start_date is earlier than your end_date"
-
     if not stateparam:
         results = session.query(unemployment).filter(unemployment.file_week_ended >= start_date).filter(unemployment.file_week_ended <= end_date)
     
