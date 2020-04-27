@@ -5,7 +5,7 @@ var myMap = L.map("map", {
 });
 addLayers(myMap);
 addLegend(myMap);
-addCovidDataToMap(myMap);
+// addCovidDataToMap(myMap);
 
 // global to hold the choropleth, so we can remove it
 var geojson;
