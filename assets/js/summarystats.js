@@ -1,7 +1,5 @@
 //Populates the summary statistics box according to the data returned
 function populateSummaryStats(data) {
-  console.log("data in summarystats", data);
-
   d3.select("#summaryStats").text(" ");
 
   let stats = calculateStats(data);
@@ -80,55 +78,50 @@ function getAvgUnemploymentRate(data) {
 }
 
 function getStateWithMaxUnempRate(data) {
+  data.sort((a, b) => (a.state > b.state ? 1 : -1));
 
-    data.sort((a, b) => (a.state > b.state) ? 1 : -1)
+  //Get the unemployment rate.
+  let unemploymentRate = data.map((entry) => {
+    return entry.insured_unemployment_rate;
+  });
 
-    //Get the unemployment rate.
-    let unemploymentRate = data.map((entry) => {
-        return entry.insured_unemployment_rate;
-    });
+  //   Get all the states
+  let states = data.map((entry) => {
+    return entry.state;
+  });
 
-    //   Get all the states
-    let states = data.map((entry) => {
-        return entry.state;
-    });
+  //Define empty list to take your avg unemployment by state
+  var stateAvgs = [];
+  instancesOfState = 0;
+  stateSum = 0;
+  //Loop through unemploymentRate
+  unemploymentRate.forEach((entry, index) => {
+    //Increment a counter (represents total number of entries for each state)
+    instancesOfState += 1;
+    //Add current value to variable that holds sum of averages by state
+    stateSum = stateSum + entry;
 
-    console.log("unemp", unemploymentRate)
-    console.log("states", states)
-  
-    //Define empty list to take your avg unemployment by state
-    var stateAvgs = []
-    instancesOfState = 0
-    stateSum = 0
-    //Loop through unemploymentRate
-    unemploymentRate.forEach( (entry, index) => {
-        //Increment a counter (represents total number of entries for each state)
-        instancesOfState += 1
-        //Add current value to variable that holds sum of averages by state
-        stateSum = stateSum + entry
+    if (states[index] != states[index + 1]) {
+      //When this condition is run we are on the last entry for this state
+      //Calculate your average and save it to array
+      stateAvgs.push({
+        state: states[index],
+        avg: stateSum / instancesOfState,
+      });
+      // Reset counter vars
+      instancesOfState = 0;
+      stateSum = 0;
+    }
+  });
 
-        if (states[index] != states[index+1]) {
-            //When this condition is run we are on the last entry for this state
-            //Calculate your average and save it to array
-            stateAvgs.push( { state: states[index],
-                avg:  stateSum / instancesOfState })
-            // Reset counter vars
-            instancesOfState = 0
-            stateSum = 0
-        }
-    });
+  let avgs = stateAvgs.map((entry) => {
+    return entry.avg;
+  });
 
-    console.log("stateAvgs", stateAvgs)
+  let maxUnemploymentRate = Math.max(...avgs);
+  let maxUnemploymentRateIndex = avgs.indexOf(maxUnemploymentRate);
 
-    let avgs = stateAvgs.map((entry) => {
-        return entry.avg;
-    });
-
-    let maxUnemploymentRate = Math.max(...avgs)
-    let maxUnemploymentRateIndex = avgs.indexOf(maxUnemploymentRate)
-    console.log(stateAvgs[maxUnemploymentRateIndex].state);
-
-    return stateAvgs[maxUnemploymentRateIndex].state;
+  return stateAvgs[maxUnemploymentRateIndex].state;
 }
 
 //Takes in the data set and returns only the elements where week filed is most recent

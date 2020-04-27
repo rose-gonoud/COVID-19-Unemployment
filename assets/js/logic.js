@@ -251,8 +251,6 @@ function buildChloropleth(apiReturn) {
     apiReturn = filterMostRecentWeekData(apiReturn);
     data = zipAPIDataToGeoJSON(data, apiReturn);
 
-    console.log("data after zipping together files", data);
-
     function style(feature) {
       return {
         fillColor: getColor(feature.properties.initial_claims),
