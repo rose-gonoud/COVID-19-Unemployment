@@ -29,7 +29,7 @@
     "test": "karma start tests/karma.conf.js --single-run"
   },
   "dependencies": {
-    "jquery": "~3.4.0"
+    "jquery": "~3.5.0"
   },
   "devDependencies": {
     "jasmine-core": "*",
