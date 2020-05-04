@@ -43,7 +43,7 @@ function optionChanged() {
   startDate = moment(startDate).format("YYYY[-]MM[-]DD");
   endDate = moment(endDate).format("YYYY[-]MM[-]DD");
 
-  //Build API call
+  //Build Unemployment API call
   baseURL =
     "https://unemployment-during-covid19.herokuapp.com/unemploymentData";
   queryString = `?start_date=${startDate}&end_date=${endDate}`;
@@ -53,17 +53,50 @@ function optionChanged() {
     queryString += `&state_abbr=${selValues.toString()}`;
   }
 
-  // Call out the the API with values from the filter fields
-  d3.json(`${baseURL}${queryString}`, (data) => {
-    console.log("api returned", data);
+  // Call out the the Unemployment API with values from the filter fields
+  d3.json(`${baseURL}${queryString}`, (unemploymentData) => {
+    console.log("unemployment API returned", unemploymentData);
 
     //Generate a line plot
-    buildPlot(data);
-    buildPlot1(data);
-    
+    buildPlot(unemploymentData);
+    buildPlot1(unemploymentData);
 
-    //Put a new chloropleth on the map
-    buildChloropleth(data);
-    populateSummaryStats(data);
+    mostRecentUnemploymentData = filterMostRecentWeekData(unemploymentData);
+
+    mostRecentUnemploymentDate = moment(
+      mostRecentUnemploymentData[0].file_week_ended
+    ).format("YYYY[-]MM[-]DD");
+
+    getCovidData(mostRecentUnemploymentDate).then((covidData) => {
+      console.log("getCovidData return", covidData);
+
+      //Stitch covidData and unemploymentData
+      let allData = stitchData(covidData, unemploymentData);
+      console.log("allData", allData);
+
+      //Put a new chloropleth on the map
+      buildChloropleth(unemploymentData);
+      populateSummaryStats(unemploymentData);
+    });
   });
+}
+
+//Take two arrays of objects with state and date data, and return one array of objects with all data from each.
+function stitchData(covidData, unemploymentData) {
+  returnArray = [];
+
+  covidData.forEach((covidDatum) => {
+    unemploymentData.forEach((unemploymentDatum) => {
+      if (
+        covidDatum.region.province == unemploymentDatum.state &&
+        covidDatum.date ==
+          moment(unemploymentDatum.file_week_ended).format("YYYY[-]MM[-]DD")
+      ) {
+        let returnDatum = { ...covidDatum, ...unemploymentDatum };
+        returnArray.push(returnDatum);
+      }
+    });
+  });
+
+  return returnArray;
 }

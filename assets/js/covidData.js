@@ -6,42 +6,69 @@
 // and the async on getCovidData was throwing a dummy resolved promise in the output to prevent error
 // called the return of getCovidData the query
 // and turned the operation into a promise that resolved to root.data
-function getCovidData(country_code, date) {
+function queryCovidAPI(country_code, date) {
   let baseURL = "https://covid-19-statistics.p.rapidapi.com/reports";
   let queryString = `?iso=${country_code}&date=${date}`;
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     d3.json(baseURL + queryString)
-        .header("x-rapidapi-host", "covid-19-statistics.p.rapidapi.com")
-        .header("x-rapidapi-key", covidAPI_KEY)
-        .get((err, root) => {
-            console.log("root.data", root.data);
-            resolve(root.data);
-        });
-    })
+      .header("x-rapidapi-host", "covid-19-statistics.p.rapidapi.com")
+      .header("x-rapidapi-key", covidAPI_KEY)
+      .get((err, root) => {
+        console.log("root.data", root.data);
+        resolve(root.data);
+      });
+  });
 }
 
-// now we call getCovidData with async/await and it will run getCovidData and grab as its return the .get resolution
-async function test() {
-    // scrapped the .then on the return to prevent accidentally mutating response in unwanted ways
-    // we have output saved as data, and can use it in different ways!
+/** Queries the CovidAPI to get dat for a specific date.
+ * if none is provided, then it defaults to yesterday
+ */
+async function getCovidData(date = null) {
+  console.log("getCovidData date", date);
 
-    //  **************************************************************
-    // I already called data on these parameters and threw it in cache, so commented out the important call here"
-//   let data = await getCovidData("USA", "2020-04-02");
+  let data = getLocalData("cachedCovidData");
+  let yesterday = moment().subtract(1, "days").format("YYYY[-]MM[-]DD");
 
-  let data = getLocalData("cachedCovidData")
+  if (!date) {
+    date = yesterday;
+  }
 
-  console.log("external, data", data)
+  console.log("getCovidData date", date);
+
+  console.log("local data", data);
+
+  //If no data was found in the cache (or empty array)
+  if (!data || data.length == 0) {
+    //Query the API
+    data = await queryCovidAPI("USA", date);
+    //Cache the contents on the user's browser
+    storeDataLocally("cachedCovidData", data);
+  }
+  //Data was found in the cache
+  else {
+    //Check if local data has date < today
+    datesInCache = data.map((entry) => entry.date);
+    //Sort dates descending
+    datesInCache.sort((a, b) => (a > b ? 1 : -1));
+    console.log("last date in cache:", datesInCache[0]);
+
+    if (datesInCache[0] != date) {
+      //Query the API
+      data = await queryCovidAPI("USA", date);
+      //Cache the contents on the user's browser
+      storeDataLocally("cachedCovidData", data);
+    }
+  }
+
+  return data;
 }
-
-test();
 
 // Nicholas taught me about browser caching to minimize API calls!
 // could be implemented in the Real Version if told to update the cache key in response to user fields
 function storeDataLocally(key, value) {
-    return localStorage.setItem(key, JSON.stringify(value))
+  return localStorage.setItem(key, JSON.stringify(value));
 }
 function getLocalData(key) {
-    return JSON.parse(localStorage.getItem(key))
+  return JSON.parse(localStorage.getItem(key));
 }
