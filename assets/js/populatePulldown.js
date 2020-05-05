@@ -75,7 +75,7 @@ function optionChanged() {
       console.log("allData", allData);
 
       //Put a new chloropleth on the map
-      buildChloropleth(unemploymentData);
+      buildChloropleth(allData);
       populateSummaryStats(unemploymentData);
     });
   });

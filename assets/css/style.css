@@ -13,6 +13,7 @@ body {
 #map {
   min-height: 600px;
   min-width: 90%;
+  margin-bottom: 2rem;
 }
 
 .leaflet-popup-content {
