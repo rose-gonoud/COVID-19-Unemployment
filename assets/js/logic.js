@@ -1,11 +1,9 @@
 // Creating map object
 var myMap = L.map("map", {
-  center: [43.615, -116.2023],
-  zoom: 3,
+  center: [39.5, -98.35],
+  zoom: 4,
 });
 addLayers(myMap);
-addLegend(myMap);
-// addCovidDataToMap(myMap);
 
 // global to hold the choropleth, so we can remove it
 var geojson;
@@ -53,35 +51,9 @@ function addLayers(myMap) {
   };
 
   //Default to street layer
-  streets.addTo(myMap);
+  dark.addTo(myMap);
   //Add controls to switch between layers
   L.control.layers(baseMaps).addTo(myMap);
-}
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// addition of covid-19 statistics per state
-async function addCovidDataToMap(myMap) {
-  composeStateData().then((stateData) => {
-    console.log("stateData", stateData);
-
-    let radius_multiplier = 7;
-
-    stateData.forEach((state) => {
-      L.circle([state.latitude, state.longitude], {
-        color: "black",
-        fillColor: "gray",
-        fillOpacity: 0.3,
-        radius: radius_multiplier * state.cases,
-      }).addTo(myMap);
-
-      L.circle([state.latitude, state.longitude], {
-        color: "red",
-        fillColor: "red",
-        fillOpacity: 1,
-        radius: radius_multiplier * state.deaths,
-      }).addTo(myMap);
-    });
-  });
 }
 
 // need proxyURL because the API doesn't send back the right cors header
@@ -142,7 +114,7 @@ async function composeStateData() {
  * @param {geoJSON OBJECT} geoData The geoJson that is returned from d3.json when querying the geojson file attached
  * @param {*} apiReturn The return from the API
  */
-function zipAPIDataToGeoJSON(geoData, apiReturn) {
+function zipAPIDataToGeoJSON(geoData, apiReturn, mode) {
   //Create array of states in the order that the apiReturn came back in
   apiDataStates = apiReturn.map((datum) => datum.state);
 
@@ -157,79 +129,80 @@ function zipAPIDataToGeoJSON(geoData, apiReturn) {
     };
 
     geoDatum.properties = newProps;
+    geoDatum.mode = mode;
   });
 
   return geoData;
 }
 
 //Given a value returns a color code
-function getColor(d) {
-  return d > 100000
-    ? "#008000"
-    : d > 50000
-    ? "#3d9200"
-    : d > 20000
-    ? "#61a400"
-    : d > 10000
-    ? "#81b600"
-    : d > 5000
-    ? "#a1c800"
-    : d > 2000
-    ? "#c0da00"
-    : d > 1000
-    ? "#dfed00"
-    : d > 1
-    ? "#ffff00"
-    : d === "COVID deaths"
-    ? "#e11b22"
-    : d === "COVID cases"
-    ? "#708090"
-    : d === 0
-    ? "black"
-    : "black";
+function getColor(d, mode) {
+  if (mode == "initial_claims") {
+    return d > 100000
+      ? "#008000"
+      : d > 50000
+      ? "#3d9200"
+      : d > 20000
+      ? "#61a400"
+      : d > 10000
+      ? "#81b600"
+      : d > 5000
+      ? "#a1c800"
+      : d > 2000
+      ? "#c0da00"
+      : d > 1000
+      ? "#dfed00"
+      : d > 1
+      ? "#ffff00"
+      : d === "COVID deaths"
+      ? "#e11b22"
+      : d === "COVID cases"
+      ? "#708090"
+      : d === 0
+      ? "black"
+      : "black";
+  } else if (mode == "confirmed") {
+    return d > 100000
+      ? "#e9294a"
+      : d > 50000
+      ? "#eb3b59"
+      : d > 20000
+      ? "#ed4c68"
+      : d > 10000
+      ? "#ef5e77"
+      : d > 5000
+      ? "#f07086"
+      : d > 2000
+      ? "#f28295"
+      : d > 1000
+      ? "#f494a4"
+      : d > 1
+      ? "#f6a5b3"
+      : d === 0
+      ? "black"
+      : "black";
+  }
 }
-
 //Add the legend
-function addLegend(myMap) {
+function addLegend(myMap, mode) {
   var legend = L.control({ position: "bottomright" });
 
   legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "info legend"),
-      grades = [
-        0,
-        1,
-        1000,
-        2000,
-        5000,
-        10000,
-        20000,
-        50000,
-        100000,
-        "COVID deaths",
-        "COVID cases",
-      ],
+      grades = [0, 1, 1000, 2000, 5000, 10000, 20000, 50000, 100000],
       labels = [];
 
     //Add special label for no data (( getColor(grades[0] + 1) ))
     div.innerHTML += '<i style="background:' + "black" + '"></i> No Data <br>';
 
     // loop through our density intervals and generate a label with a colored square for each interval
-    for (let i = 1; i < grades.length - 3; i++) {
+    for (let i = 1; i < grades.length; i++) {
       div.innerHTML +=
         '<i style="background:' +
-        getColor(grades[i] + 1) +
+        getColor(grades[i] + 1, mode) +
         '"></i> ' +
         grades[i] +
         (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
-    }
-
-    for (let i = 8; 7 < i && i < 11; i++) {
-      div.innerHTML +=
-        '<i style="background:' +
-        getColor(grades[i]) +
-        '"></i> ' +
-        grades[i] +
-        "<br><br>";
     }
 
     return div;
@@ -238,7 +211,7 @@ function addLegend(myMap) {
   legend.addTo(myMap);
 }
 
-function buildChloropleth(apiReturn) {
+function buildChloropleth(apiReturn, mode = "initial_claims") {
   if (geojson) {
     console.log("removing old geojson");
     geojson.remove();
@@ -249,14 +222,14 @@ function buildChloropleth(apiReturn) {
 
   d3.json(geoDataPath, function (data) {
     apiReturn = filterMostRecentWeekData(apiReturn);
-    data = zipAPIDataToGeoJSON(data, apiReturn);
+    data = zipAPIDataToGeoJSON(data, apiReturn, mode);
 
     function style(feature) {
       return {
-        fillColor: getColor(feature.properties.initial_claims),
+        fillColor: getColor(feature.properties[mode], feature.mode),
         weight: 2,
         opacity: 1,
-        color: "white",
+        color: "black",
         fillOpacity: 0.7,
       };
     }
@@ -281,4 +254,6 @@ function buildChloropleth(apiReturn) {
       onEachFeature: onEachFeature,
     }).addTo(myMap);
   });
+
+  addLegend(myMap, mode);
 }

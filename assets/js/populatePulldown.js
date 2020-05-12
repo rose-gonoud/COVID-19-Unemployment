@@ -5,6 +5,7 @@ d3.select("#endDate").property("value", moment().format("YYYY[-]MM[-]DD"));
 // Bind the optionChanged method to the input fields
 d3.select("#startDate").on("change", optionChanged);
 d3.select("#startDate").on("change", optionChanged);
+d3.selectAll(".btn-secondary").on("click", changeMode());
 
 //Initial API call on page load
 optionChanged();
@@ -75,10 +76,14 @@ function optionChanged() {
       console.log("allData", allData);
 
       //Put a new chloropleth on the map
-      buildChloropleth(allData);
+      buildChloropleth(allData, "confirmed");
       populateSummaryStats(unemploymentData);
     });
   });
+}
+
+function changeMode(event) {
+  console.log("event", event);
 }
 
 //Take two arrays of objects with state and date data, and return one array of objects with all data from each.

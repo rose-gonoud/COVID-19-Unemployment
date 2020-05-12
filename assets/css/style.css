@@ -150,6 +150,15 @@ select {
   margin-bottom: 12px;
 }
 
+.btn-group {
+  align-self: center;
+}
+
+.btn {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 #table-area th {
   text-align: center;
 }
@@ -318,6 +327,12 @@ select {
 
 .well {
   border-radius: 8px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  margin-top: 2rem;
+  margin-bottom: 0rem;
 }
 
 .tableDatum {
