@@ -21,7 +21,7 @@ function queryCovidAPI(country_code, date) {
   });
 }
 
-/** Queries the CovidAPI to get dat for a specific date.
+/** Queries the CovidAPI to get data for a specific date.
  * if none is provided, then it defaults to yesterday
  */
 async function getCovidData(date = null) {
