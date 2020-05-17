@@ -233,8 +233,7 @@ function addLegend(myMap, mode) {
 
   legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "info legend"),
-      grades = [0, 1, 1000, 2000, 5000, 10000, 20000, 50000, 100000],
-      labels = [];
+      grades = getColorModeOptions(mode).bins.reverse();
 
     //Add special label for no data (( getColor(grades[0] + 1) ))
     div.innerHTML += '<i style="background:' + "black" + '"></i> No Data <br>';
