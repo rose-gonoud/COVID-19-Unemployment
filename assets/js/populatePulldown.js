@@ -5,7 +5,18 @@ d3.select("#endDate").property("value", moment().format("YYYY[-]MM[-]DD"));
 // Bind the optionChanged method to the input fields
 d3.select("#startDate").on("change", optionChanged);
 d3.select("#startDate").on("change", optionChanged);
-d3.selectAll(".btn-secondary").on("click", changeMode());
+
+//Default to initial_claims view
+d3.select("#initial_claims").property("checked", true);
+
+//TODO Separate Mode change functionality from optionChanged.
+// option changed should be for filters and trigger new API calls
+// modeChanged should just change the data being displayed without making
+// a new API call
+// d3.selectAll(".btn-secondary").on("click", changeMode);
+
+//For now just hook up the mode changing buttons to optionChanged
+d3.selectAll(".btn-secondary").on("click", optionChanged);
 
 //Initial API call on page load
 optionChanged();
@@ -75,8 +86,12 @@ function optionChanged() {
       let allData = stitchData(covidData, unemploymentData);
       console.log("allData", allData);
 
+      //Get the value of the selected mode
+      let selectedMode = d3.select('input[name="mode"]:checked').property("id");
+      console.log("currently selected mode", selectedMode);
+
       //Put a new chloropleth on the map
-      buildChloropleth(allData, "confirmed");
+      buildChloropleth(allData, selectedMode);
       populateSummaryStats(unemploymentData);
     });
   });

@@ -3,10 +3,51 @@ var myMap = L.map("map", {
   center: [39.5, -98.35],
   zoom: 4,
 });
+console.log(
+  "interpolateColors return",
+  interpolateColors("#008000", "#dfed00", 0.1)
+);
+
 addLayers(myMap);
 
-// global to hold the choropleth, so we can remove it
+// global to hold the choropleth layer and legend, so we can remove it
 var geojson;
+var legend = null;
+
+/** Takes two color codes as strings and returns you a color code that is a proportion between them
+ * @param hexCode1 First color code passed as hex string
+ * @param hexCode2 Second color code passed as hex string
+ * @param proportion A number between 0 and 1 representing the mix between the colors. 0 returns hexCode1, 1 returns hexCode2 .5 returns a number halfway between them
+ *
+ */
+function interpolateColors(hexCode1, hexCode2, proportion) {
+  //Get each color out of the hex codes and convert them to ints
+  let red1 = parseInt(hexCode1.substr(1, 2), 16);
+  let red2 = parseInt(hexCode2.substr(1, 2), 16);
+  let green1 = parseInt(hexCode1.substr(3, 2), 16);
+  let green2 = parseInt(hexCode2.substr(3, 2), 16);
+  let blue1 = parseInt(hexCode1.substr(5, 2), 16);
+  let blue2 = parseInt(hexCode2.substr(5, 2), 16);
+
+  //Get the colors that falls proportionally between the two for each color channel
+  // and convert it back into a hex string
+  let redScale = d3.scaleLinear().domain([0, 1]).range([red1, red2]);
+  let newRed = parseInt(redScale(proportion)).toString(16);
+
+  let greenScale = d3.scaleLinear().domain([0, 1]).range([green1, green2]);
+  let newGreen = parseInt(greenScale(proportion)).toString(16);
+
+  let blueScale = d3.scaleLinear().domain([0, 1]).range([blue1, blue2]);
+  let newBlue = parseInt(blueScale(proportion)).toString(16);
+
+  //If any of the color codes ended up as only one digit, append a 0
+  newRed = newRed.length == 1 ? "0" + newRed : newRed;
+  newGreen = newGreen.length == 1 ? "0" + newGreen : newGreen;
+  newBlue = newBlue.length == 1 ? "0" + newBlue : newBlue;
+
+  //Append them to a new string
+  return `#${newRed}${newGreen}${newBlue}`;
+}
 
 //Adds street, light and dark layers to the map
 function addLayers(myMap) {
@@ -137,55 +178,58 @@ function zipAPIDataToGeoJSON(geoData, apiReturn, mode) {
 
 //Given a value returns a color code
 function getColor(d, mode) {
+  options = getColorModeOptions(mode);
+
+  for (var ii = 0; ii < options.bins.length; ii++) {
+    if (d > options.bins[ii]) {
+      return interpolateColors(
+        options.highColor,
+        options.lowColor,
+        ii / (options.bins.length - 1)
+      );
+    }
+  }
+
+  return "black";
+}
+
+//Gets the color options for a given mode
+function getColorModeOptions(mode) {
+  console.log("mode", mode);
+
   if (mode == "initial_claims") {
-    return d > 100000
-      ? "#008000"
-      : d > 50000
-      ? "#3d9200"
-      : d > 20000
-      ? "#61a400"
-      : d > 10000
-      ? "#81b600"
-      : d > 5000
-      ? "#a1c800"
-      : d > 2000
-      ? "#c0da00"
-      : d > 1000
-      ? "#dfed00"
-      : d > 1
-      ? "#ffff00"
-      : d === "COVID deaths"
-      ? "#e11b22"
-      : d === "COVID cases"
-      ? "#708090"
-      : d === 0
-      ? "black"
-      : "black";
+    return {
+      highColor: "#008000",
+      lowColor: "#ffff00",
+      bins: [100000, 50000, 20000, 10000, 5000, 2000, 1000, 1],
+    };
   } else if (mode == "confirmed") {
-    return d > 100000
-      ? "#e9294a"
-      : d > 50000
-      ? "#eb3b59"
-      : d > 20000
-      ? "#ed4c68"
-      : d > 10000
-      ? "#ef5e77"
-      : d > 5000
-      ? "#f07086"
-      : d > 2000
-      ? "#f28295"
-      : d > 1000
-      ? "#f494a4"
-      : d > 1
-      ? "#f6a5b3"
-      : d === 0
-      ? "black"
-      : "black";
+    return {
+      highColor: "#e9294a",
+      lowColor: "#f6a5b3",
+      bins: [100000, 50000, 20000, 10000, 5000, 2000, 1000, 1],
+    };
+  } else if (mode == "continued_claims") {
+    return {
+      highColor: "#000080",
+      lowColor: "#73c2fb",
+      bins: [1000000, 700000, 500000, 300000, 100000, 50000, 10000, 1],
+    };
+  } else if ((mode = "deaths")) {
+    return {
+      highColor: "#301934",
+      lowColor: "#b19cd9",
+      bins: [3000, 2000, 1000, 500, 100, 50, 30, 10, 1],
+    };
   }
 }
+
 //Add the legend
 function addLegend(myMap, mode) {
-  var legend = L.control({ position: "bottomright" });
+  //If legend is defined call its remove function to prevent making new legends each time.
+  legend && legend.remove();
+
+  legend = L.control({ position: "bottomright" });
 
   legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "info legend"),
