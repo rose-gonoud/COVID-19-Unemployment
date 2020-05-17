@@ -4,9 +4,9 @@
 
 This work displays US unemployment data from 2019 through the present day in a responsive browser dashboard. Its primary feature is a map containg US unemployment data claim numbers, broken down by state and visualized using a color-coded gradient system. Each state's total number of unemployment claims for a user-selected period of time will display as an aggregate - that is, the entirety of any given state will be represented as a single color.
 
-An additional map layer represents the number of COVID-19 related deaths each state has experienced through the present day. This code pulls from a publically hosted API (http://coronavirusapi.com/) in real time, so that our dashboard's data is always as updated as its source. Code for this particular layer was adapted from our collaborator Jesse Caldwell's personal repository: https://github.com/CollectionOfAtoms/covid_visualization.
+An additional map layer represents the number of COVID-19 related deaths each state has experienced through the present day. This code pulls from a publically hosted API (BASE URL : https://covid-19-statistics.p.rapidapi.com/) in real time, so that our dashboard's data is always as updated as its source. Code for this particular layer was adapted from our collaborator Jesse Caldwell's personal repository: https://github.com/CollectionOfAtoms/covid_visualization.
 
-Data may be filtered by custom date ranges and a custom multi-select state menu (rendering dat for any single state or possible combination of multiple states). This dashboard also contains line graph visualizations for both total claim numbers and unemployment rates, responsive to the same combinations of filters above. All dashboard interfaces update in unison in response to user input.
+Data may be filtered by custom date ranges and a custom multi-select state menu (rendering data for any single state or possible combination of multiple states). This dashboard also contains line graph visualizations for both total claim numbers and unemployment rates, responsive to the same combinations of filters above. All dashboard interfaces update in unison in response to user input.
 
 Linked on the navigation bar, there is an additional data table allowing the user to browse our raw numerical data.
 
