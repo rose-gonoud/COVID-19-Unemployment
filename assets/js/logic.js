@@ -97,59 +97,6 @@ function addLayers(myMap) {
   L.control.layers(baseMaps).addTo(myMap);
 }
 
-// need proxyURL because the API doesn't send back the right cors header
-// UPDATE 4/24/2020 It's dead the cors-anywhere proxy made too many requests and
-// now there is a server error :P
-async function getMostRecentCoronaData(state) {
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  const apiURL = "http://coronavirusapi.com/getTimeSeriesJson/";
-
-  returnVal = fetch(
-    proxyUrl + apiURL + state,
-    {
-      method: "GET", // *GET, POST, PUT, DELETE, etc.
-    } // no-cors, *cors, same-origin
-  )
-    .then((response) => {
-      return response.text();
-    })
-    .then((body) => {
-      body = body.split("\n");
-      body.forEach((row, index) => {
-        body[index] = row.split(",");
-      });
-      return body[body.length - 1];
-    })
-    .then((mostRecentCoronaData) => {
-      return mostRecentCoronaData;
-    })
-    .catch((err) => {
-      console.log("Api Request failed with error", err);
-    });
-
-  return returnVal;
-}
-
-// awaits the whole foreach to run before returning
-async function asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array);
-  }
-}
-
-async function composeStateData() {
-  d3.json("assets/data/stateData.json", async (stateData) => {
-    await asyncForEach(stateData, async (state) => {
-      let stateData = await getMostRecentCoronaData(state.abbr);
-      state.cases = +stateData[2];
-      state.deaths = +stateData[3];
-    });
-
-    console.log(stateData);
-    return stateData;
-  });
-}
-
 /**
  * Takes in geoJson object and appends data returned from the API to each states geoJSON entry
  * @param {geoJSON OBJECT} geoData The geoJson that is returned from d3.json when querying the geojson file attached
