@@ -16,7 +16,7 @@ https://oui.doleta.gov/unemploy/claims.asp
 
 The above link provided us with our raw US unemployment data as a .csv. As this source is updated, we will download new data packets and store them in our SQLite database, represented in JSON format. Our Python Flask app queries this database with values tethered to dashboard user input.
 
-Our COVID data is pulled from the below publically hosted API:
+Our COVID data is pulled from a publically hosted RapidAPI:
 https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics
 
 ### Heroku Deployment
