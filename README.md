@@ -2,9 +2,9 @@
 
 ### Overall Project Scope and Objective
 
-This work displays US unemployment data from 2019 through the present day in a responsive browser dashboard. Its primary feature is a map containg US unemployment data claim numbers, broken down by state and visualized using a color-coded gradient system. Each state's total number of unemployment claims for a user-selected period of time will display as an aggregate - that is, the entirety of any given state will be represented as a single color.
+This work displays US unemployment data from 2019 through the present day and COVID-19 case data for all of 2020 in a responsive browser dashboard. Its primary feature is a map that can toggle between these two data sets, broken down by state and visualized using a color-coded gradient system. Each state's total number of unemployment claims, COVID cases, or COVID deaths for a user-selected period of time will display as an aggregate - that is, the entirety of any given state will be represented as a single color.
 
-An additional map layer represents the number of COVID-19 related deaths each state has experienced through the present day. This code pulls from a publically hosted API (BASE URL : https://covid-19-statistics.p.rapidapi.com/) in real time, so that our dashboard's data is always as updated as its source. Code for this particular layer was adapted from our collaborator Jesse Caldwell's personal repository: https://github.com/CollectionOfAtoms/covid_visualization.
+Code for the COVID-19 map layers was adapted from our collaborator Jesse Caldwell's personal repository: https://github.com/CollectionOfAtoms/covid_visualization.
 
 Data may be filtered by custom date ranges and a custom multi-select state menu (rendering data for any single state or possible combination of multiple states). This dashboard also contains line graph visualizations for both total claim numbers and unemployment rates, responsive to the same combinations of filters above. All dashboard interfaces update in unison in response to user input.
 
@@ -15,6 +15,9 @@ Linked on the navigation bar, there is an additional data table allowing the use
 https://oui.doleta.gov/unemploy/claims.asp
 
 The above link provided us with our raw US unemployment data as a .csv. As this source is updated, we will download new data packets and store them in our SQLite database, represented in JSON format. Our Python Flask app queries this database with values tethered to dashboard user input.
+
+Our COVID data is pulled from the below publically hosted API:
+https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics
 
 ### Heroku Deployment
 
