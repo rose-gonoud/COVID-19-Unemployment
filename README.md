@@ -21,7 +21,7 @@ https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics
 
 ### Heroku Deployment
 
-Here you can find the Flask app public repo: https://github.com/rose-gonoud/herokuProject2, and our Heroku-hosted interface: https://unemployment-during-covid19.herokuapp.com/
+Here you can find the Flask app public repo: https://github.com/rose-gonoud/COVID-Unemployment-HerokuAPI, and our Heroku-hosted interface: https://unemployment-during-covid19.herokuapp.com/
 
 
 
